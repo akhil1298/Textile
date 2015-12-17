@@ -32,7 +32,7 @@
     <style name="ThemeOverlay.MyApp.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
         <!-- change the background color of menu item inside 3 dots-->
         <item name="android:textColorPrimary">@color/accentcolor</item>
-        <item name="android:background">#93c7ba</item>
+        <item name="android:background">@color/background</item>
     </style>
 
     <style name="edittext">
