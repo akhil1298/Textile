@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/chatbgblur"
+    tools:context="com.socialwork.mainclasses.ChatMainActivity">
+
+    <Button
+        android:id="@+id/btnsend"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/ic_action_send_now"
+        android:onClick="saveReply" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btnsend">
+
+        <ListView
+            android:id="@+id/ChatListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_marginBottom="10dp"
+
+            android:divider="@color/none"
+            android:groupIndicator="@color/none"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:stackFromBottom="true" />
+
+        <TextView
+            android:id="@+id/stickyView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/ColorPrimary"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:textColor="@color/accentcolor"
+            android:textSize="14dp"
+            android:visibility="gone"/>
+
+        <!--    <TextView
+                android:id="@+id/stickyView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#222"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="Heading1"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:textStyle="bold" />-->
+
+    </FrameLayout>
+
+
+
+    <TextView
+        android:id="@+id/txtNoDataFound1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="No Chat History Found!"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+
+    <EditText
+        android:id="@+id/msg_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnsend"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/btnsend"
+        android:textColor="@color/accentcolor"
+        android:inputType="textMultiLine"></EditText>
+
+
+
+</RelativeLayout>

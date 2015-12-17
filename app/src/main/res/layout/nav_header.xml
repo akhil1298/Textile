@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryColor"
+        android:scaleType="centerCrop" />
+    <!--android:src="@drawable/background_navigation"-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="0dp">
+
+        <fourever.textile.miscs.RoundedImageView
+            android:id="@+id/user_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="@dimen/nav_header_img_left"
+            android:layout_marginTop="@dimen/nav_header_img_top"
+            android:padding="5dp"
+            android:src="@drawable/maleuser" />
+
+        <!--   <com.android.volley.toolbox.NetworkImageView
+               android:id="@+id/vendor_image"
+               android:layout_width="100dp"
+               android:layout_height="100sp"
+               android:layout_centerInParent="true"
+               android:layout_marginBottom="6dp"
+               android:layout_marginTop="@dimen/nav_header_image_top"
+               android:background="@drawable/photo243"
+               android:src="@drawable/photo243" />-->
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_image"
+            android:layout_marginLeft="@dimen/nav_header_txt_left"
+            android:text="Akhil Batlawala"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="16sp"
+            android:typeface="serif" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></LinearLayout>
+</FrameLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_header_height"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:background="@color/primaryColor" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/vendor_image"
+                android:layout_width="100dp"
+                android:layout_height="100sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/accentcolor"
+                android:src="@drawable/photo243" />
+
+            <TextView
+                android:layout_below="@+id/vendor_image"
+                android:id="@+id/vendor_name"
+                android:layout_width="wrap_content"
+                android:text="Akhil Batlawala"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </FrameLayout>-->

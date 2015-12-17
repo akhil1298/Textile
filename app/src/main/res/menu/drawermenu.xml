@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_item_dashboard"
+            android:icon="@drawable/newsfeed"
+            android:title="@string/newsfeed" />
+        <item
+            android:id="@+id/nav_item_editprofile"
+            android:icon="@drawable/editprofile"
+            android:title="@string/editprofile" />
+
+        <item
+            android:id="@+id/nav_item_chat"
+            android:icon="@drawable/chat"
+            android:title="@string/chat" />
+
+         <item
+             android:id="@+id/nav_item_invite_frds"
+             android:icon="@drawable/invitefrds"
+             android:title="@string/invitefrds" />
+
+        <item
+            android:id="@+id/nav_item_fav"
+            android:icon="@drawable/favorite"
+            android:title="@string/favorite" />
+
+        <item
+            android:id="@+id/nav_item_logout"
+            android:icon="@drawable/logout"
+            android:title="@string/logout" />
+    </group>
+
+    <!-- <item android:title="Others">
+         <menu>
+             <item
+                 android:icon="@drawable/setting"
+                 android:title="Spam" />
+             <item
+                 android:icon="@drawable/chat"
+                 android:title="Bin" />
+         </menu>
+     </item>-->
+
+    <group android:id="@+id/group_settings_id">
+
+        <item
+            android:id="@+id/nav_item_rateus"
+            android:icon="@drawable/rateus"
+            android:title="Rate Us" />
+        <item
+            android:icon="@drawable/contactus"
+            android:title="Contact Us" />
+
+        <item
+            android:icon="@drawable/aboutus"
+            android:title="About Us" />
+
+        <item
+            android:icon="@drawable/info"
+            android:title="Help" />
+    </group>
+
+</menu>

@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/dialog"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:paddingBottom="-50dp">
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/signuplayout">
+
+                <LinearLayout
+                    android:id="@+id/editprofile_mainlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/coverimg"
+                                android:layout_width="match_parent"
+                                android:layout_height="170dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/mainbg" />
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/coverimg"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/profileroundshape">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp">
+
+                                    <TextView
+                                        android:id="@+id/uname"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="50dp"
+                                        android:gravity="center_horizontal"
+                                        android:text="Akhil Batlawala"
+                                        android:textSize="22dp"
+                                        android:textStyle="bold"
+                                        android:typeface="serif" />
+
+                                    <TextView
+                                        android:id="@+id/descriptn"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@+id/uname"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="1dp"
+                                        android:gravity="center_horizontal"
+                                        android:maxWidth="330dp"
+                                        android:text="I am going to arrange blood donation camp"
+                                        android:textSize="16dp"
+                                        android:textStyle="bold"
+                                        android:typeface="serif"
+                                        android:visibility="gone" />
+
+                                    <TextView
+                                        android:id="@+id/joingingadte"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@+id/descriptn"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="5dp"
+                                        android:gravity="center_horizontal"
+                                        android:maxWidth="330dp"
+                                        android:text="Joining at 20-Dec-2015"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold"
+                                        android:typeface="serif" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@+id/joingingadte"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@drawable/simple_border" />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center">
+
+                                            <LinearLayout
+                                                android:id="@+id/timelinelayout"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="35dp"
+                                                android:gravity="center"
+                                                android:orientation="horizontal">
+
+                                                <fourever.textile.miscs.RoundedImageView
+                                                    android:id="@+id/servicecompleted"
+                                                    android:layout_width="140dp"
+                                                    android:layout_height="140dp"
+
+
+                                                    android:padding="5dp"
+                                                    android:src="@drawable/maleuser" />
+
+                                            </LinearLayout>
+
+                                            <!-- <LinearLayout
+                                                 android:id="@+id/timelinelayout"
+                                                 android:layout_width="wrap_content"
+                                                 android:layout_height="wrap_content"
+                                                 android:layout_marginLeft="35dp"
+                                                 android:gravity="center"
+                                                 android:orientation="vertical">
+
+                                                 <TextView
+                                                     android:layout_width="wrap_content"
+                                                     android:layout_height="wrap_content"
+                                                     android:layout_marginTop="5dp"
+                                                     android:gravity="center_horizontal"
+                                                     android:maxWidth="330dp"
+                                                     android:text="54"
+                                                     android:textSize="30dp"
+                                                     android:textStyle="bold"
+                                                     android:typeface="serif" />
+
+                                                 <TextView
+                                                     android:layout_width="wrap_content"
+                                                     android:layout_height="wrap_content"
+                                                     android:gravity="center_horizontal"
+                                                     android:maxWidth="130dp"
+                                                     android:text="Services"
+                                                     android:textColor="#BCBCBD"
+                                                     android:textSize="14dp"
+                                                     android:textStyle="bold"
+                                                     android:typeface="serif" />
+
+                                                 <TextView
+                                                     android:layout_width="wrap_content"
+                                                     android:layout_height="wrap_content"
+                                                     android:gravity="center_horizontal"
+                                                     android:maxWidth="130dp"
+                                                     android:text="Completed"
+                                                     android:textColor="#BCBCBD"
+                                                     android:textSize="14dp"
+                                                     android:textStyle="bold"
+                                                     android:typeface="serif" />
+                                             </LinearLayout>
+
+                                             <TextView
+                                                 android:id="@+id/divider"
+                                                 android:layout_width="wrap_content"
+                                                 android:layout_height="80dp"
+                                                 android:layout_marginTop="10dp"
+                                                 android:layout_toLeftOf="@+id/eventlayout"
+                                                 android:background="@drawable/horizontal_border"
+                                                 android:padding="5dp" />
+
+                                             <LinearLayout
+                                                 android:id="@+id/eventlayout"
+                                                 android:layout_width="wrap_content"
+                                                 android:layout_height="wrap_content"
+                                                 android:layout_alignParentRight="true"
+                                                 android:gravity="center"
+                                                 android:orientation="vertical">
+
+                                                 <TextView
+                                                     android:layout_width="wrap_content"
+                                                     android:layout_height="wrap_content"
+                                                     android:layout_marginTop="5dp"
+                                                     android:gravity="center_horizontal"
+                                                     android:maxWidth="330dp"
+                                                     android:text="2.5"
+                                                     android:textSize="30dp"
+                                                     android:textStyle="bold"
+                                                     android:typeface="serif" />
+
+                                                 <RatingBar
+
+                                                     android:id="@+id/ratingbar_default"
+                                                     style="@style/foodRatingBar"
+                                                     android:layout_width="wrap_content"
+                                                     android:layout_height="35dp"
+                                                     android:isIndicator="true"
+                                                     android:rating="3.8"
+                                                     android:scaleX="0.4"
+                                                     android:scaleY="0.4" />
+
+                                                 &lt;!&ndash; <RatingBar
+
+                                                      android:id="@+id/ratingBar"
+                                                      style="@style/foodRatingBar"
+                                                      android:layout_width="wrap_content"
+                                                      android:layout_height="wrap_content"
+                                                      android:rating="2.4" />&ndash;&gt;
+
+                                                 <TextView
+
+                                                     android:layout_width="wrap_content"
+                                                     android:layout_height="wrap_content"
+                                                     android:gravity="center_horizontal"
+                                                     android:maxWidth="330dp"
+                                                     android:text="Rating"
+                                                     android:textColor="#BCBCBD"
+                                                     android:textSize="14dp"
+                                                     android:textStyle="bold"
+                                                     android:typeface="serif" />
+
+                                             </LinearLayout>-->
+
+                                        </RelativeLayout>
+
+                                        <!--<LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center_horizontal"
+                                            android:weightSum="100">
+
+                                            <LinearLayout
+                                                android:id="@+id/timelinelayout"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="50"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="5dp"
+                                                    android:gravity="center_horizontal"
+                                                    android:maxWidth="330dp"
+                                                    android:text="54"
+                                                    android:textSize="30dp"
+                                                    android:textStyle="bold"
+                                                    android:typeface="serif" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center_horizontal"
+                                                    android:maxWidth="130dp"
+                                                    android:text="Services"
+                                                    android:textColor="#BCBCBD"
+                                                    android:textSize="14dp"
+                                                    android:textStyle="bold"
+                                                    android:typeface="serif" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center_horizontal"
+                                                    android:maxWidth="130dp"
+                                                    android:text="Completed"
+                                                    android:textColor="#BCBCBD"
+                                                    android:textSize="14dp"
+                                                    android:textStyle="bold"
+                                                    android:typeface="serif" />
+                                            </LinearLayout>
+
+                                            <TextView
+                                                android:id="@+id/divider"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="50dp"
+                                                android:layout_marginLeft="5dp"
+                                                android:layout_marginRight="15dp"
+                                                android:layout_marginTop="10dp"
+                                                android:layout_toRightOf="@+id/timelinelayout"
+                                                android:layout_weight="1"
+                                                android:background="@drawable/horizontal_border" />
+
+                                            <LinearLayout
+                                                android:id="@+id/eventlayout"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_weight="50"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="5dp"
+                                                    android:gravity="center_horizontal"
+                                                    android:maxWidth="330dp"
+                                                    android:text="12"
+                                                    android:textSize="30dp"
+                                                    android:textStyle="bold"
+                                                    android:typeface="serif" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:gravity="center_horizontal"
+                                                    android:maxWidth="330dp"
+                                                    android:text="Rating"
+                                                    android:textColor="#BCBCBD"
+                                                    android:textSize="14dp"
+                                                    android:textStyle="bold"
+                                                    android:typeface="serif" />
+                                            </LinearLayout>
+
+                                        </LinearLayout>-->
+                                    </LinearLayout>
+                                </RelativeLayout>
+                            </FrameLayout>
+
+                            <fourever.textile.miscs.RoundedImageView
+                                android:id="@+id/rImage"
+                                android:layout_width="140dp"
+                                android:layout_height="140dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="80dp"
+                                android:padding="5dp"
+                                android:src="@drawable/maleuser" />
+                        </RelativeLayout>
+                    </FrameLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/profileroundshape">
+
+                        <LinearLayout
+                            android:id="@+id/aboutlayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/simple_border"
+                            android:orientation="horizontal"
+                            android:padding="10dp"
+                            android:weightSum="100">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="100"
+                                android:text="About"
+                                android:textSize="20dp"
+                                android:textStyle="bold"
+                                android:typeface="serif" />
+
+                            <ProgressBar
+                                android:id="@+id/updatefield"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="4dp"
+                                android:indeterminate="false"
+                                android:indeterminateDrawable="@drawable/progress"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/editprofile"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="10"
+                                android:src="@drawable/edit" />
+
+                            <TextView
+                                android:id="@+id/saveprofile"
+                                android:layout_width="55dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="20"
+                                android:background="@drawable/saveprofilebutton"
+                                android:text="Save"
+                                android:textSize="20dp"
+                                android:textStyle="bold"
+                                android:typeface="serif"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/lblreladdress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/aboutlayout"
+                            android:padding="7dp">
+
+                            <TextView
+                                android:id="@+id/lblcurcity"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableLeft="@drawable/place"
+                                android:text=" Address"
+                                android:textColor="@color/ltgrey"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/useraddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/lblcurcity"
+                                android:layout_marginLeft="30dp"
+                                android:text="Surat, Gujarat, India texttile market ved road working."
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/edit_useraddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/lblcurcity"
+                                android:layout_marginLeft="30dp"
+                                android:text="Surat, Gujarat, India texttile market ved road working."
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/lblrelphone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/lblreladdress"
+                            android:padding="7dp">
+
+                            <TextView
+                                android:id="@+id/phoneno"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableLeft="@drawable/phone"
+                                android:text=" Mobile"
+                                android:textColor="@color/ltgrey"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtphone"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/phoneno"
+                                android:layout_marginLeft="30dp"
+                                android:text="7878707022 "
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/edtphone"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/phoneno"
+                                android:layout_marginLeft="30dp"
+                                android:text="7878707022"
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/profileroundshape">
+
+                        <LinearLayout
+                            android:id="@+id/bussinesslayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/simple_border"
+                            android:orientation="horizontal"
+                            android:padding="10dp"
+                            android:weightSum="100">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="100"
+                                android:text="Business"
+                                android:textSize="20dp"
+                                android:textStyle="bold"
+                                android:typeface="serif" />
+
+                            <ImageView
+                                android:id="@+id/editbusinessprofile"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_weight="10"
+                                android:src="@drawable/edit" />
+
+                            <TextView
+                                android:id="@+id/savebusinessprofile"
+                                android:layout_width="55dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="20"
+                                android:background="@drawable/saveprofilebutton"
+                                android:text="Save"
+                                android:textSize="20dp"
+                                android:textStyle="bold"
+                                android:typeface="serif"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/lblrelbussiness"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/bussinesslayout"
+                            android:padding="7dp">
+
+                            <TextView
+                                android:id="@+id/lblbussinesshort"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableLeft="@drawable/work"
+                                android:text=" Short Description"
+                                android:textColor="@color/ltgrey"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtbusishort"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/lblbussinesshort"
+                                android:layout_marginLeft="30dp"
+                                android:text="Work on different material design."
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/edtbusishort"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/lblbussinesshort"
+                                android:layout_marginLeft="30dp"
+                                android:text="Surat, Gujarat, India texttile market ved road working."
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/lblrelbussinesslong"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/lblrelbussiness"
+                            android:padding="7dp">
+
+                            <TextView
+                                android:id="@+id/lblbussinesslong"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableLeft="@drawable/longdesc"
+                                android:text=" Long Description"
+                                android:textColor="@color/ltgrey"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtbussislong"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/lblbussinesslong"
+                                android:layout_marginLeft="30dp"
+                                android:text="7878707022 "
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/edtbusslong"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/lblbussinesslong"
+                                android:layout_marginLeft="30dp"
+                                android:text="7878707022"
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+            </ScrollView>
+            <!---add your views here-->
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:clickable="true"
+            android:src="@drawable/cross" />
+    </FrameLayout>
+
+</LinearLayout>

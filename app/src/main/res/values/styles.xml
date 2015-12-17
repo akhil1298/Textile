@@ -1,0 +1,70 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColorDark</item>
+    </style>
+
+    <style name="AppTheme1" parent="Theme.AppCompat.Light">
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="LoginscreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/loginprimarycolor</item>
+        <item name="colorPrimaryDark">@color/loginprimarycolor</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppThemeNoAvtionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColorDark</item>
+        <item name="colorControlNormal">@color/accentcolor</item>  <!--Change the color of overflow menu on actionbar(3 dot color only)-->
+    </style>
+
+    <style name="Widget.MyApp.ActionBar" parent="Widget.AppCompat.ActionBar">
+        <!--<item name="android:background">@color/accentcolor</item>-->
+        <!--<item name="theme">@style/ThemeOverlay.MyApp.ActionBar</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>-->
+        <item name="android:textColorPrimary">@color/accentcolor</item>
+    </style>
+
+    <style name="ThemeOverlay.MyApp.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <!-- change the background color of menu item inside 3 dots-->
+        <item name="android:textColorPrimary">@color/accentcolor</item>
+        <item name="android:background">#93c7ba</item>
+    </style>
+
+    <style name="edittext">
+        <item name="colorControlNormal">#d32f2f</item>
+        <item name="colorControlActivated">#ff5722</item>
+        <item name="colorControlHighlight">#f44336</item>
+    </style>
+
+    <style name="FabStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        
+        <!--<item name="android:layout_margin">@dimen/spacing_large</item>-->
+        <item name="android:src">@drawable/ic_add_black</item>
+        <item name="borderWidth">0dp</item>
+        <item name="elevation">6dp</item>
+        <item name="pressedTranslationZ">12dp</item>
+        <item name="rippleColor">@android:color/white</item>
+    </style>
+
+    <color name="accent">#FFEB3B</color>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/slide_in_left</item>
+        <item name="android:windowExitAnimation">@android:anim/slide_out_right</item>
+    </style>
+
+    <!--    Custom ratingBar    -->
+
+    <style name="foodRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/star_rating_bar_full</item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">20dip</item>
+    </style>
+</resources>
