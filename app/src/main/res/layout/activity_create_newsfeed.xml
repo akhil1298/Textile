@@ -10,7 +10,6 @@
     android:paddingTop="10dp"
     tools:context="com.socialwork.mainclasses.Create_NewsFeed">
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,10 +17,10 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <ScrollView
-            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/post">
+            android:layout_above="@+id/post"
+            android:layout_marginBottom="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
