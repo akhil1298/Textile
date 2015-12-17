@@ -31,7 +31,7 @@
 
     <style name="ThemeOverlay.MyApp.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
         <!-- change the background color of menu item inside 3 dots-->
-        <item name="android:textColorPrimary">@color/accentcolor</item>
+        <item name="android:textColorPrimary">@color/primaryColor</item>
         <item name="android:background">@color/background</item>
     </style>
 
