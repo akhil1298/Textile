@@ -13,10 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import java.util.ArrayList;
-import java.util.List;
 
-import fourever.textile.fragment.chatindividual;
+import fourever.textile.notificationadapter.notifications;
 
 public class Chat extends AppCompatActivity {
 
@@ -69,11 +67,11 @@ public class Chat extends AppCompatActivity {
        public Fragment getItem(int position) {
            switch (position) {
                case 0:
-                   return new chatindividual();
+                   return new notifications();
                case 1:
-                   return new chatindividual();
+                   return new notifications();
                case 2:
-                   return new chatindividual();
+                   return new notifications();
 
            }
            return null;

@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -51,7 +50,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="50dp"
                                 android:gravity="center_horizontal"
-                                android:text="Akhil Batlawala"
+                                android:text="Your name"
                                 android:textSize="22dp"
                                 android:textStyle="bold"
                                 android:typeface="serif" />
@@ -80,7 +79,7 @@
                                 android:layout_marginTop="5dp"
                                 android:gravity="center_horizontal"
                                 android:maxWidth="330dp"
-                                android:text="Joining at 20-Dec-2015"
+                                android:text="Your joining time"
                                 android:textSize="12dp"
                                 android:textStyle="bold"
                                 android:typeface="serif" />
@@ -169,7 +168,7 @@
                                             android:layout_height="wrap_content"
                                             android:gravity="center_horizontal"
                                             android:maxWidth="330dp"
-                                            android:text="Event"
+                                            android:text="Followers"
                                             android:textColor="#BCBCBD"
                                             android:textSize="14dp"
                                             android:textStyle="bold"
@@ -224,8 +223,8 @@
                         android:layout_height="25dp"
                         android:layout_marginTop="4dp"
                         android:indeterminate="false"
-                        android:visibility="gone"
-                        android:indeterminateDrawable="@drawable/progress" />
+                        android:indeterminateDrawable="@drawable/progress"
+                        android:visibility="gone" />
 
                     <ImageView
                         android:id="@+id/editprofile"
@@ -272,7 +271,6 @@
                         android:layout_height="match_parent"
                         android:layout_below="@+id/lblcurcity"
                         android:layout_marginLeft="30dp"
-                        android:text="Surat, Gujarat, India texttile market ved road working."
                         android:textSize="16dp"
                         android:textStyle="bold" />
 
@@ -282,7 +280,7 @@
                         android:layout_height="match_parent"
                         android:layout_below="@+id/lblcurcity"
                         android:layout_marginLeft="30dp"
-                        android:text="Surat, Gujarat, India texttile market ved road working."
+                        android:hint="Enter adress here."
                         android:textSize="16dp"
                         android:textStyle="bold"
                         android:visibility="gone" />
@@ -328,6 +326,37 @@
                         android:visibility="gone" />
                 </RelativeLayout>
 
+                <LinearLayout
+                    android:id="@+id/loadmore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/lblrelphone"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/simple_border"
+                        android:textSize="2sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/dots" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center_horizontal"
+                        android:text="More About" />
+                </LinearLayout>
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -345,36 +374,39 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/simple_border"
                     android:orientation="horizontal"
-                    android:padding="10dp"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="8dp"
                     android:weightSum="100">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="100"
-                        android:text="Business"
+                        android:text="About Business"
                         android:textSize="20dp"
                         android:textStyle="bold"
                         android:typeface="serif" />
 
-                    <ImageView
-                        android:id="@+id/editbusinessprofile"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_weight="10"
-                        android:src="@drawable/edit" />
+                    <!-- <ImageView
+                         android:id="@+id/editbusinessprofile"
+                         android:layout_width="25dp"
+                         android:layout_height="25dp"
+                         android:layout_weight="10"
+                         android:src="@drawable/edit" />
 
-                    <TextView
-                        android:id="@+id/savebusinessprofile"
-                        android:layout_width="55dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="20"
-                        android:background="@drawable/saveprofilebutton"
-                        android:text="Save"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:typeface="serif"
-                        android:visibility="gone" />
+                     <TextView
+                         android:id="@+id/savebusinessprofile"
+                         android:layout_width="55dp"
+                         android:layout_height="30dp"
+                         android:layout_weight="20"
+                         android:background="@drawable/saveprofilebutton"
+                         android:text="Save"
+                         android:textSize="20dp"
+                         android:textStyle="bold"
+                         android:typeface="serif"
+                         android:visibility="gone" />-->
 
                 </LinearLayout>
 
@@ -383,80 +415,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/bussinesslayout"
-                    android:padding="7dp">
+                    android:paddingBottom="7dp"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="7dp"
+                    android:paddingTop="7dp">
+
+                    <!--  <TextView
+                          android:id="@+id/lblbussinesshort"
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:drawableLeft="@drawable/work"
+                          android:text=" Short Description"
+                          android:textColor="@color/ltgrey"
+                          android:textSize="16dp"
+                          android:textStyle="bold" />-->
 
                     <TextView
-                        android:id="@+id/lblbussinesshort"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:drawableLeft="@drawable/work"
-                        android:text=" Short Description"
-                        android:textColor="@color/ltgrey"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtbusishort"
+                        android:id="@+id/txtStatus"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_below="@+id/lblbussinesshort"
                         android:layout_marginLeft="30dp"
-                        android:text="Work on different material design."
+                        android:clickable="true"
+                        android:focusableInTouchMode="true"
+                        android:onClick="changeStatus"
                         android:textSize="16dp"
                         android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/edtbusishort"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@+id/lblbussinesshort"
-                        android:layout_marginLeft="30dp"
-                        android:text="Surat, Gujarat, India texttile market ved road working."
-                        android:textSize="16dp"
-                        android:textStyle="bold"
-                        android:visibility="gone" />
 
                 </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/lblrelbussinesslong"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/lblrelbussiness"
-                    android:padding="7dp">
-
-                    <TextView
-                        android:id="@+id/lblbussinesslong"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:drawableLeft="@drawable/longdesc"
-                        android:text=" Long Description"
-                        android:textColor="@color/ltgrey"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtbussislong"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@+id/lblbussinesslong"
-                        android:layout_marginLeft="30dp"
-                        android:text="7878707022 "
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/edtbusslong"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@+id/lblbussinesslong"
-                        android:layout_marginLeft="30dp"
-                        android:text="7878707022"
-                        android:textSize="16dp"
-                        android:textStyle="bold"
-                        android:visibility="gone" />
-                </RelativeLayout>
-
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

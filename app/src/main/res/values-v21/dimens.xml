@@ -1,15 +1,23 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="user_profile_height21_own">400dp</dimen>
+    <dimen name="user_profile_height_own">370dp</dimen>
+
+    <dimen name="user_profile_height21">430dp</dimen>
+    <dimen name="user_profile_height">410dp</dimen>
+
+
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="nav_header_height">140dp</dimen>
-    <dimen name="nav_header_img_top">15dp</dimen>
+    <dimen name="nav_header_img_top">24dp</dimen>
     <dimen name="nav_header_img_left">15dp</dimen>
     <dimen name="nav_header_txt_left">25dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_margin">40dp</dimen>
 
     <dimen name="floatting_btn">45dp</dimen>
-
     <dimen name="floatting_btn_margin">16dp</dimen>
+
 </resources>

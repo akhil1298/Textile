@@ -4,22 +4,26 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.StrictMode;
+import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
@@ -58,28 +62,28 @@ import fourever.textile.adapter.Post_Service_Adapter;
 import fourever.textile.customgallary.Action;
 import fourever.textile.customgallary.CustomGallery;
 import fourever.textile.customgallary.CustomGalleryActivity;
-import fourever.textile.customgallary.GalleryselectedAdapter;
+import fourever.textile.customgallary.GalleryselectedAdapterRecycler;
 import fourever.textile.entity.post_service_entity;
 import fourever.textile.miscs.FileUploader;
 import fourever.textile.miscs.PutUtility;
+import fourever.textile.miscs.customtoast;
 
 public class Create_NewsFeed extends AppCompatActivity {
 
     private int RESULT_LOAD_IMAGE = 1;
     ImageLoader imageLoader;
 
-    String res = "";
-
+    String action, res = "";
     EditText txtdesc;
 
-    GridView gridGallery;
+    //GridView gridGallery;
+    public static RecyclerView gridGallery;
     Handler handler;
-    GalleryselectedAdapter adapter;
+    GalleryselectedAdapterRecycler adapter;
 
     Create_NewsFeed context = null;
 
-    String action;
-    ViewSwitcher viewSwitcher;
+    public static ViewSwitcher viewSwitcher;
     public static ArrayList<CustomGallery> dataT = new ArrayList<CustomGallery>();
     private int deviceHeight;
     private int deviceWidth;
@@ -94,14 +98,18 @@ public class Create_NewsFeed extends AppCompatActivity {
     ArrayList<CustomGallery> selectedItems;
     Handler hn = new Handler();
 
-    String posttype = "B";
+    // String posttype = "B";
     String ServiceId;
     private ArrayList<post_service_entity> Services;
+    private SharedPreferences Loginprefs;
+    private String userid;
+    private LinearLayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_newsfeed);
+
         context = this;
         txtdesc = (EditText) findViewById(R.id.txtdesc);
 
@@ -109,32 +117,42 @@ public class Create_NewsFeed extends AppCompatActivity {
                 new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        Loginprefs = getApplicationContext().getSharedPreferences("logindetail", 0);
+        userid = Loginprefs.getString("user_id", null);
+        if (userid == null) {
+            Intent intent = new Intent(Create_NewsFeed.this, Login.class);
+            startActivity(intent);
+            finish();
+        }
+
         post = (Button) findViewById(R.id.post);
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String desc = txtdesc.getText().toString();
 
-                if (!TextUtils.isEmpty(desc) && ((adapter.getCount() - 1) > 0)) {
-                    if ((adapter.getCount() - 1) > 0) {
+                if (!TextUtils.isEmpty(desc) && ((adapter.getItemCount() - 1) > 0)) {
+                    if ((adapter.getItemCount() - 1) > 0) {
 
                         hn.post(new Runnable() {
                             @Override
                             public void run() {
                                 ArrayList<String> imgPaths = new ArrayList<String>();
-                                for (int i = 0; i < adapter.getCount() - 1; i++) {
+                                for (int i = 0; i < adapter.getItemCount() - 1; i++) {
                                     CustomGallery items = adapter.getItem(i);
                                     imgPaths.add(items.sdcardPath);
                                 }
                                 // uploadMultiFile(imgPaths);
-                                if(!TextUtils.isEmpty(ServiceId) && !TextUtils.isEmpty(posttype)) {
+                                if (!TextUtils.isEmpty(ServiceId)) {
                                     ArrayList<String> param = new ArrayList<String>();
-                                    param.add("2"); // userid
+                                    param.add(userid); // userid
                                     param.add(txtdesc.getText().toString()); //text description
-                                    param.add(posttype); // posttype
+                                    // param.add(posttype); // posttype
                                     param.add(ServiceId); // Service ID
                                     //uploadFile(imgPaths);
                                     new ServiceSync().execute(imgPaths, param);
+                                } else {
+                                    customtoast.ShowToast(getApplicationContext(), "Please select Service.", R.layout.red_toast);
                                 }
                             }
                         });
@@ -160,7 +178,7 @@ public class Create_NewsFeed extends AppCompatActivity {
     }
 
     private void setSpinner() {
-        buyselSpinner = (Spinner) findViewById(R.id.buysell);
+       /* buyselSpinner = (Spinner) findViewById(R.id.buysell);
         buysellAdapter = new ArrayAdapter<String>(this, R.layout.spinneritem, buysell);
         buysellAdapter.setDropDownViewResource
                 (android.R.layout.simple_spinner_dropdown_item);
@@ -175,11 +193,10 @@ public class Create_NewsFeed extends AppCompatActivity {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
+            public void onNothingSelected(AdapterView<?> parent) { }
         });
 
-        buyselSpinner.setAdapter(buysellAdapter);
+        buyselSpinner.setAdapter(buysellAdapter);*/
 
         //  ----------------------------------------------------------------------------------------------------
 
@@ -191,7 +208,6 @@ public class Create_NewsFeed extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ServiceId = Services.get(position).getServiceid();
-                Toast.makeText(getApplicationContext(), ServiceId , Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -249,28 +265,40 @@ public class Create_NewsFeed extends AppCompatActivity {
     private void init() {
 
         handler = new Handler();
-        gridGallery = (GridView) findViewById(R.id.gridGallery);
-        // gridGallery.setFastScrollEnabled(true);
-        adapter = new GalleryselectedAdapter(getApplicationContext(), imageLoader);
+        //gridGallery = (GridView) findViewById(R.id.gridGallery);
+        gridGallery = (RecyclerView) findViewById(R.id.gridGallery);
+        //gridGallery.setFastScrollEnabled(true);
+        // adapter = new GalleryselectedAdapter(getApplicationContext(), imageLoader);
+        adapter = new GalleryselectedAdapterRecycler(Create_NewsFeed.this, imageLoader);
+        layoutManager
+                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        //GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 1);
+        gridGallery.setLayoutManager(layoutManager);
+
         adapter.setMultiplePick(false);
         gridGallery.setAdapter(adapter);
 
         viewSwitcher = (ViewSwitcher) findViewById(R.id.viewSwitcher);
         viewSwitcher.setDisplayedChild(1);
 
-        gridGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*adapter.setOnItemClickListener(new GalleryselectedAdapterRecycler.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                //Toast.makeText(getApplicationContext(), "pos - " +  position + "count" + adapter.getCount() + "- selected-" + adapter.getSelected(), Toast.LENGTH_SHORT).show();
-                if (position == adapter.getCount() - 1) {
+            public void onItemClick(View itemView, int position) {
+
+            }
+        });*/
+
+        /*gridGallery.addOnItemTouchListener(new RecyclerItemClickListener(this,
+                new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                if (position == adapter.getItemCount() - 1) {
                     selectMultiple(view);
                 }
 
-                if (position >= 1) {
-                    //  Toast.makeText(getApplicationContext(), "closed", Toast.LENGTH_SHORT).show();
-                }
+                if (position >= 1) { }
             }
-        });
+        }));*/
     }
 
     public void choosepic() {
@@ -344,60 +372,21 @@ public class Create_NewsFeed extends AppCompatActivity {
 
             viewSwitcher.setDisplayedChild(0);
             adapter.addAll(dataT);
-            // adapter.notifyDataSetChanged();
+            adapter.notifyDataSetChanged();
+
+            gridGallery.scrollToPosition(adapter.getItemCount() - 1);
             gridGallery.setAdapter(adapter);
 
-            if (dataT.size() >= 4) {
-                DisplayMetrics displaymetrics = new DisplayMetrics();
-                getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+            if (dataT.size() >= 1) {
+                // DisplayMetrics displaymetrics = new DisplayMetrics();
+                // getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
 
-                int height = displaymetrics.heightPixels / 3;
-
-                deviceHeight = displaymetrics.heightPixels;
-                deviceWidth = displaymetrics.widthPixels;
+                //int height = displaymetrics.heightPixels / 2;
+                int height = (int) getResources().getDimension(R.dimen.photo_height_selected) + 15;
 
                 gridGallery.setMinimumHeight(height);
                 gridGallery.getLayoutParams().height = height;
             }
-        }
-    }
-
-    public void uploadFile(ArrayList<String> imgPaths) {
-
-        String charset = "UTF-8";
-        //File uploadFile1 = new File("e:/Test/PIC1.JPG");
-        //File uploadFile2 = new File("e:/Test/PIC2.JPG");
-
-        File sourceFile[] = new File[imgPaths.size()];
-        for (int i = 0; i < imgPaths.size(); i++) {
-            sourceFile[i] = new File(imgPaths.get(i));
-        }
-
-        String requestURL = "http://4eversolutions.co.in/projects/TextileApp/webservice/create_post.php";
-
-        try {
-            FileUploader multipart = new FileUploader(requestURL, charset, getApplicationContext());
-
-            multipart.addHeaderField("User-Agent", "CodeJava");
-            multipart.addHeaderField("Test-Header", "Header-Value");
-
-            multipart.addFormField("description", "Cool Pictures");
-            multipart.addFormField("keywords", "Java,upload,Spring");
-
-            for (int i = 0; i < imgPaths.size(); i++) {
-                multipart.addFilePart("uploaded_file[]", sourceFile[i]);
-            }
-
-            /*multipart.addFilePart("fileUpload", uploadFile1);
-            multipart.addFilePart("fileUpload", uploadFile2);*/
-
-            List<String> response = multipart.finish();
-
-            for (String line : response) {
-                System.out.println(line);
-            }
-        } catch (IOException ex) {
-            System.err.println(ex);
         }
     }
 
@@ -483,9 +472,7 @@ public class Create_NewsFeed extends AppCompatActivity {
                 // Start parameter
                 addFormField("user_id", imgPaths[1].get(0)); //pass user_id
                 addFormField("description", imgPaths[1].get(1)); //pass description
-                addFormField("post_type", imgPaths[1].get(2)); //pass type
-                addFormField("price", "1000"); //pass user_id
-                addFormField("serviceid", imgPaths[1].get(3)); //pass service id
+                addFormField("category_id", imgPaths[1].get(2)); //pass service id
                 //End parameter
 
                 File sourceFile[] = new File[imgPaths[0].size()];
@@ -514,20 +501,27 @@ public class Create_NewsFeed extends AppCompatActivity {
         protected void onPostExecute(List<String> ress) {
             try {
                 if (ress == null) {
+                    //finish();
                     mProgressDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Failed to upload files", Toast.LENGTH_SHORT).show();
                 }
 
                 if (ress.size() > 0) {
                     for (int i = 0; i < ress.size(); i++) {
-                        Toast.makeText(getApplicationContext(), ress.get(i), Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Create_NewsFeed.this,MainActivity.class);
+                        dataT.clear();
+                        customtoast.ShowToast(Create_NewsFeed.this, "Posted successfully.", R.layout.blue_toast);
+                        Intent intent = new Intent(Create_NewsFeed.this, MainActivity.class);
                         startActivity(intent);
+                        finish();
                     }
+                    adapter.clearCache();
+                    adapter.clear();
                 }
 
                 mProgressDialog.dismiss();
             } catch (Exception objEx) {
+                adapter.clearCache();
+                adapter.clear();
                 objEx.printStackTrace();
             }
         }
@@ -631,6 +625,13 @@ public class Create_NewsFeed extends AppCompatActivity {
 
             return response;
         }
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        dataT.clear();
+        finish();
     }
 
     private class getServices extends AsyncTask<String, Void, String> {
@@ -680,7 +681,6 @@ public class Create_NewsFeed extends AppCompatActivity {
                         service.setServicename(json.getString("name"));
                         service.setServicedetail(json.getString("detail"));
                         Services.add(service);
-
                         datas.add(json.getString("name"));
                     }
 
@@ -709,4 +709,44 @@ public class Create_NewsFeed extends AppCompatActivity {
             }
         }
     }
+
+    public static class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
+        private OnItemClickListener mListener;
+
+        public interface OnItemClickListener {
+            public void onItemClick(View view, int position);
+        }
+
+        GestureDetector mGestureDetector;
+
+        public RecyclerItemClickListener(Context context, OnItemClickListener listener) {
+            mListener = listener;
+            mGestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
+                @Override
+                public boolean onSingleTapUp(MotionEvent e) {
+                    return true;
+                }
+            });
+        }
+
+        @Override
+        public boolean onInterceptTouchEvent(RecyclerView view, MotionEvent e) {
+
+            View childView = view.findChildViewUnder(e.getX(), e.getY());
+            if (childView != null && mListener != null && mGestureDetector.onTouchEvent(e)) {
+                mListener.onItemClick(childView, view.getChildAdapterPosition(childView));
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public void onTouchEvent(RecyclerView view, MotionEvent motionEvent) {
+        }
+
+        @Override
+        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+        }
+    }
+
 }

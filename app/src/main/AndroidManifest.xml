@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="fourever.textile.mainclasses" >
+    package="fourever.textile.mainclasses">
 
     <supports-screens
         android:anyDensity="true"
@@ -13,11 +13,21 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <permission
+        android:name="fourever.textile.mainclasses.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
+        android:name="fourever.textile.miscs.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:largeHeap="true"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme">
         <activity
             android:name=".Login"
             android:label="@string/app_name"
@@ -28,18 +38,66 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <receiver
+            android:name=".GcmReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="eazito.eazitovendor.mainclasses" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".GcmMessageHandler" />
+
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationName"
+            android:value="@string/facebook_app_name" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider133169000390255"
+            android:exported="true" />
+
+        <receiver android:name=".HelloFacebookBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.platform.AppCallResultBroadcast" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".Profile"
             android:parentActivityName=".MainActivity"
-            android:label="@string/title_activity_profile" >
+            android:theme="@style/AppTheme.NoActionBar"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+
         </activity>
+        <activity
+            android:name=".Followers_Profile"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_news_feed"
-            android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoAvtionBar" />
         <activity
             android:name=".Chat"
@@ -54,16 +112,14 @@
             android:name=".Create_NewsFeed"
             android:label="@string/title_activity_create__news_feed"
             android:windowSoftInputMode="adjustPan">
-
             <intent-filter>
                 <action android:name="luminous.ACTION_PICK" />
                 <action android:name="luminous.ACTION_MULTIPLE_PICK" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
-        <activity android:name="fourever.textile.customgallary.CustomGalleryActivity" >
+        <activity android:name="fourever.textile.customgallary.CustomGalleryActivity">
             <intent-filter>
                 <action android:name="luminous.ACTION_PICK" />
                 <action android:name="luminous.ACTION_MULTIPLE_PICK" />
@@ -75,13 +131,24 @@
             android:name=".ChatMainActivity"
             android:label="@string/title_activity_chat_main"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".SignUp"
             android:label="@string/title_activity_sign_up"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="fourever.textile.miscs.Home"
+            android:hardwareAccelerated="true"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="fourever.textile.miscs.ImageEnhancemeane"
+            android:label="@string/title_activity_image_enhancemeane" >
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
         </activity>
     </application>
 

@@ -16,15 +16,20 @@
             android:icon="@drawable/chat"
             android:title="@string/chat" />
 
+        <item
+            android:id="@+id/nav_item_friend_request"
+            android:icon="@drawable/friends"
+            android:title="@string/frdrequest" />
+
          <item
              android:id="@+id/nav_item_invite_frds"
              android:icon="@drawable/invitefrds"
              android:title="@string/invitefrds" />
 
-        <item
+        <!--<item
             android:id="@+id/nav_item_fav"
             android:icon="@drawable/favorite"
-            android:title="@string/favorite" />
+            android:title="@string/favorite" />-->
 
         <item
             android:id="@+id/nav_item_logout"

@@ -6,10 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.os.StrictMode;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -21,25 +19,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.InputStream;
-import java.net.URL;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+import com.facebook.login.LoginManager;
 
-import fourever.textile.fragment.newsfeed;
-import fourever.textile.miscs.RoundedImageView;
-
+import fourever.textile.fragment.DashboardFragment;
+import fourever.textile.fragment.Friend_Requests;
+import fourever.textile.miscs.AppController;
+import fourever.textile.miscs.Utils;
+import fourever.textile.notificationadapter.notifications;
 
 public class MainActivity extends AppCompatActivity {
 
     DrawerLayout mDrawerLayout;
     NavigationView mNavigationView;
     ActionBarDrawerToggle mDrawerToggle;
-    Toolbar toolbar;
+    public static Toolbar toolbar;
     private TextView Name;
     private static final String NAV_ITEM_ID = "navItemId";
     private int mNavItemId;
@@ -47,9 +46,12 @@ public class MainActivity extends AppCompatActivity {
     private FragmentTransaction mFragmentTransaction;
     private SharedPreferences Loginprefs;
     private String userid;
-    private RoundedImageView img;
+    private NetworkImageView img;
     private String imageurl;
     private Bitmap bitMap;
+    private ImageLoader imageLoader;
+
+    private static final int ANIM_DURATION_TOOLBAR = 300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,28 +64,30 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle(R.string.newsfeed);
         setSupportActionBar(toolbar);
 
+        startIntroAnimation();
+
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        imageLoader = AppController.getInstance().getImageLoader();
+        if (imageLoader == null)
+            imageLoader = AppController.getInstance().getImageLoader();
+
         Loginprefs = getApplicationContext().getSharedPreferences("logindetail", 0);
         userid = Loginprefs.getString("user_id", null);
 
-        Name = (TextView) mNavigationView.findViewById(R.id.user_name);
-        img = (RoundedImageView) mNavigationView.findViewById(R.id.user_image);
-
-        Name = (TextView) mNavigationView.findViewById(R.id.user_name);
-        Name.setText(Loginprefs.getString("user_name", null));
-
-        String userid = Loginprefs.getString("user_id", null);
         if (userid == null) {
             Intent intent = new Intent(MainActivity.this, Login.class);
             startActivity(intent);
             finish();
         } else {
 
-            Name.setText(Loginprefs.getString("user_name", null));
+            Name = (TextView) mNavigationView.findViewById(R.id.user_name);
+            img = (NetworkImageView) mNavigationView.findViewById(R.id.user_image);
+            Name = (TextView) mNavigationView.findViewById(R.id.user_name);
 
+            Name.setText(Loginprefs.getString("user_name", null));
             img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -99,9 +103,10 @@ public class MainActivity extends AppCompatActivity {
             });
 
             if (Loginprefs.getString("user_img", null) != null) {
-
                 try {
-                    imageurl = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null);
+                    img.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null), imageLoader);
+
+                   /* imageurl = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null);
                     URL url = new URL(imageurl);
                     InputStream is = url.openConnection().getInputStream();
                     if(bitMap!=null)
@@ -112,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
                     bitMap = BitmapFactory.decodeStream(is);
                     img.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    img.setImageBitmap(bitMap);
+                    img.setImageBitmap(bitMap);*/
                 } catch (Exception e) {
                     Log.d("Sutter image problem", "error - " + e.getMessage());
                 }
@@ -128,7 +133,25 @@ public class MainActivity extends AppCompatActivity {
 
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.containerView, new newsfeed()).commit();
+       /* if (getIntent().getExtras() != null) {
+            String back = getIntent().getStringExtra("followers_profile_back");
+            if (back.equals("followers_profile_back")) {
+                DashboardFragment dashboardFragment = new DashboardFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("followers_profile_back", "followers_profile_back");
+                dashboardFragment.setArguments(bundle);
+                mFragmentTransaction.replace(R.id.containerView, dashboardFragment).commit();
+                toolbar.setTitle(R.string.newsfeed);
+            }
+
+        } else {*/
+        mFragmentTransaction.replace(R.id.containerView, new DashboardFragment()).commit();
+        toolbar.setTitle(R.string.newsfeed);
+        //}
+
+
+       /* mFragmentTransaction = mFragmentManager.beginTransaction();
+        mFragmentTransaction.replace(R.id.containerView, new DashboardFragment()).commit();*/
 
         mNavigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -141,14 +164,17 @@ public class MainActivity extends AppCompatActivity {
 
                         if (menuItem.getItemId() == R.id.nav_item_dashboard) {
                             FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                            fragmentTransaction.replace(R.id.containerView, new newsfeed()).commit();
+                            fragmentTransaction.replace(R.id.containerView, new DashboardFragment()).commit();
                             toolbar.setTitle(R.string.newsfeed);
                         }
 
                         if (menuItem.getItemId() == R.id.nav_item_editprofile) {
                             Intent intent = new Intent(MainActivity.this, Profile.class);
                             startActivity(intent);
-                            toolbar.setTitle(R.string.editprofile);
+                            overridePendingTransition(R.anim.activity_open_translate, R.anim.activity_close_scale);
+                            /*FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+                            fragmentTransaction.replace(R.id.containerView, new ProfileFragment()).commit();
+                            toolbar.setTitle(R.string.editprofile);*/
                         }
 
                         if (menuItem.getItemId() == R.id.nav_item_chat) {
@@ -157,7 +183,33 @@ public class MainActivity extends AppCompatActivity {
                             toolbar.setTitle(R.string.chat);
                         }
 
+                        if (menuItem.getItemId() == R.id.nav_item_friend_request) {
+                            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+                            fragmentTransaction.replace(R.id.containerView, new Friend_Requests()).commit();
+                            toolbar.setTitle(R.string.frdrequest);
+                        }
+
+                        if (menuItem.getItemId() == R.id.nav_item_invite_frds) {
+
+                            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                            sharingIntent.setType("text/plain");
+                            sharingIntent
+                                    .putExtra(
+                                            android.content.Intent.EXTRA_TEXT,
+                                            getResources().getString(R.string.invitefriends));
+                            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
+                                    "Take a look at our Textile Mobile App");
+                            startActivity(Intent.createChooser(sharingIntent, "Share via"));
+
+                            /*FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+                            fragmentTransaction.replace(R.id.containerView, new Invite_Friends()).commit();
+                            toolbar.setTitle(R.string.frdrequest);*/
+                        }
+
                         if (menuItem.getItemId() == R.id.nav_item_rateus) {
+                            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+                            fragmentTransaction.replace(R.id.containerView, new notifications()).commit();
+                            toolbar.setTitle(R.string.newsfeed);
                             toolbar.setTitle(R.string.setting);
                         }
 
@@ -180,6 +232,7 @@ public class MainActivity extends AppCompatActivity {
                                                 Intent intent = new Intent(MainActivity.this, Login.class);
                                                 startActivity(intent);
                                                 finish();
+                                                LoginManager.getInstance().logOut();
                                             }
                                         }
                                     });
@@ -197,7 +250,61 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+    }
 
+
+    private void startIntroAnimation() {
+        //btnCreate.setTranslationY(2 * getResources().getDimensionPixelOffset(R.dimen.btn_fab_size));
+
+        int actionbarSize = Utils.dpToPx(56);
+        toolbar.setTranslationY(-actionbarSize);
+        // ivLogo.setTranslationY(-actionbarSize);
+        // inboxMenuItem.getActionView().setTranslationY(-actionbarSize);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            toolbar.animate()
+                    .translationY(0)
+                    .setDuration(ANIM_DURATION_TOOLBAR)
+                    .setStartDelay(1000);
+        }
+        /*ivLogo.animate()
+                .translationY(0)
+                .setDuration(ANIM_DURATION_TOOLBAR)
+                .setStartDelay(400);
+        inboxMenuItem.getActionView().animate()
+                .translationY(0)
+                .setDuration(ANIM_DURATION_TOOLBAR)
+                .setStartDelay(500)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                       // startContentAnimation();
+                    }
+                })
+                .start();*/
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        /*if(toolbar != null) {
+            toolbar.setVisibility(View.VISIBLE);
+        }*/
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        //toolbar.setVisibility(View.GONE);
+        overridePendingTransition(R.anim.activity_open_scale, R.anim.activity_close_translate);
+    }
+
+    public static void setToolbarTitle(String title) {
+        toolbar.setTitle(title);
+    }
+
+    public static Toolbar getToolBarLayout() {
+        return toolbar;
     }
 
     @Override
@@ -212,11 +319,11 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt(NAV_ITEM_ID, mNavItemId);
     }
 
-    @Override
+  /*  @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_news_feed, menu);
+        getMenuInflater().inflate(R.menu.menu_notification_tab, menu);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
@@ -225,7 +332,7 @@ public class MainActivity extends AppCompatActivity {
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 return true;
         }
-        return super.onOptionsItemSelected(item);
+        return false;
         /*if (item.getItemId() == android.support.v7.appcompat.R.id.home) {
             return mDrawerToggle.onOptionsItemSelected(item);
         }
@@ -238,7 +345,7 @@ public class MainActivity extends AppCompatActivity {
             onBackPressed();
             return true;
         }
-        return super.onKeyUp(keyCode, objEvent);
+        return false;
     }
 
     @Override

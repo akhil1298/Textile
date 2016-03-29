@@ -1,25 +1,22 @@
 package fourever.textile.miscs;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
-
 import android.graphics.Paint;
-
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import com.android.volley.toolbox.NetworkImageView;
+
 import fourever.textile.mainclasses.R;
 
-public class RoundedImageView extends ImageView {
+public class RoundedImageView extends NetworkImageView {
 
     private int borderWidth = 4;
     private int viewWidth;

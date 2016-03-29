@@ -8,20 +8,30 @@
     <string name="title_activity_news_feed">News Feed</string>
     <string name="title_activity_chat_main">Akhil Batlawala</string>
     <string name="title_activity_sign_up">Sign Up</string>
+    <string name="spinner_prompt">Select City</string>
+
+    <string name="facebook_app_id">133169000390255</string>
+    <string name="facebook_app_name">TextTile</string>
 
     <!--    Drawer Items    -->
     <string name="newsfeed">News Feed</string>
     <string name="editprofile">Profile</string>
     <string name="chat">Chat</string>
     <string name="setting">Setting</string>
+    <string name="frdrequest">Friend Request</string>
     <string name="invitefrds">Invite Friends</string>
     <string name="favorite">Favorite</string>
     <string name="logout">Logout</string>
     <string name="title_activity_chat">Chat</string>
     <string name="title_activity_create__news_feed">Post Feed</string>
 
-
+    <string name="demoString">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </string>
     <!--  Text View Label  -->
     <string name="description">Description</string>
+    <string name="title_activity_home">Home</string>
+    <string name="title_activity_profile_two">ProfileTwo</string>
+    <string name="title_activity_image_enhancemeane">ImageEnhancemeane</string>
+
+    <string name="invitefriends">Check out Textile for your smartphone. Download it today from http://4eversolutions.co.in//</string>
 
 </resources>

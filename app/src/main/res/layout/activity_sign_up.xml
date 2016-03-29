@@ -4,12 +4,12 @@
     android:background="@drawable/mainbg">
 
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_marginTop="10dp">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -22,139 +22,141 @@
                 android:background="@drawable/singuproundshape"
                 android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/aboutlayout1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingTop="10dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
-
-                <EditText
-                    android:id="@+id/username"
+                <LinearLayout
+                    android:id="@+id/aboutlayout1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/simple_border"
-                    android:drawableLeft="@drawable/user"
-                    android:drawablePadding="10dp"
-                    android:gravity="center_vertical"
-                    android:hint=" Name"
-                    android:padding="15dp"
-                    android:textColor="@color/primaryColorDark"
-                    android:textColorHint="@color/ltgrey"
-                    android:textSize="18sp"
-                    android:typeface="serif">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp">
 
-                    <requestFocus />
-                </EditText>
+                    <EditText
+                        android:id="@+id/username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/simple_border"
+                        android:drawableLeft="@drawable/user"
+                        android:drawablePadding="10dp"
+                        android:gravity="center_vertical"
+                        android:hint=" Name"
+                        android:padding="15dp"
+                        android:textColor="@color/primaryColorDark"
+                        android:textColorHint="@color/ltgrey"
+                        android:textSize="18sp"
+                        android:typeface="serif">
 
-                <EditText
-                    android:id="@+id/address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/simple_border"
-                    android:drawableLeft="@drawable/address"
-                    android:drawablePadding="10dp"
-                    android:gravity="center_vertical"
-                    android:hint=" Address"
-                    android:padding="15dp"
-                    android:textColor="@color/primaryColorDark"
-                    android:textColorHint="@color/ltgrey"
-                    android:textSize="18sp"
-                    android:typeface="serif" />
+                        <requestFocus />
+                    </EditText>
 
-                <Spinner
-                    android:id="@+id/spincity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/gradient_spinner"
-                    android:padding="10dp"></Spinner>
+                    <EditText
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/simple_border"
+                        android:drawableLeft="@drawable/address"
+                        android:drawablePadding="10dp"
+                        android:gravity="center_vertical"
+                        android:hint=" Address"
+                        android:padding="15dp"
+                        android:textColor="@color/primaryColorDark"
+                        android:textColorHint="@color/ltgrey"
+                        android:textSize="18sp"
+                        android:typeface="serif" />
 
-                <EditText
-                    android:id="@+id/phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/simple_border"
-                    android:backgroundTint="@color/edittintcolor"
-                    android:drawableLeft="@drawable/phone"
-                    android:drawablePadding="10dp"
-                    android:hint=" Phone No."
-                    android:padding="15dp"
-                    android:inputType="phone"
-                    android:textColor="@color/primaryColorDark"
-                    android:textColorHint="@color/ltgrey"
-                    android:textSize="18sp"
-                    android:typeface="serif" />
+                    <Spinner
+                        android:id="@+id/spincity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/gradient_spinner"
+                        android:padding="10dp"></Spinner>
 
-                <EditText
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/simple_border"
-                    android:backgroundTint="@color/edittintcolor"
-                    android:drawableLeft="@drawable/email"
-                    android:drawablePadding="10dp"
-                    android:hint=" Email"
-                    android:padding="15dp"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/primaryColorDark"
-                    android:textColorHint="@color/ltgrey"
-                    android:textSize="18sp"
-                    android:typeface="serif" />
+                    <EditText
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/simple_border"
+                        android:backgroundTint="@color/edittintcolor"
+                        android:drawableLeft="@drawable/phone"
+                        android:drawablePadding="10dp"
+                        android:hint=" Phone No."
+                        android:inputType="phone"
+                        android:padding="15dp"
+                        android:textColor="@color/primaryColorDark"
+                        android:textColorHint="@color/ltgrey"
+                        android:textSize="18sp"
+                        android:typeface="serif" />
 
-                <EditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/simple_border"
-                    android:backgroundTint="@color/edittintcolor"
-                    android:drawableLeft="@drawable/password"
-                    android:drawablePadding="10dp"
-                    android:hint=" Password"
-                    android:padding="15dp"
-                    android:textColor="@color/primaryColorDark"
-                    android:textColorHint="@color/ltgrey"
-                    android:textSize="18sp"
-                    android:typeface="serif" />
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/simple_border"
+                        android:backgroundTint="@color/edittintcolor"
+                        android:drawableLeft="@drawable/email"
+                        android:drawablePadding="10dp"
+                        android:hint=" Email"
+                        android:inputType="textEmailAddress"
+                        android:padding="15dp"
+                        android:textColor="@color/primaryColorDark"
+                        android:textColorHint="@color/ltgrey"
+                        android:textSize="18sp"
+                        android:typeface="serif" />
 
-                <EditText
-                    android:id="@+id/businesstitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/simple_border"
-                    android:backgroundTint="@color/edittintcolor"
-                    android:drawableLeft="@drawable/businesstitle"
-                    android:drawablePadding="10dp"
-                    android:hint=" Business Title"
-                    android:padding="15dp"
-                    android:textColor="@color/primaryColorDark"
-                    android:textColorHint="@color/ltgrey"
-                    android:textSize="18sp"
-                    android:typeface="serif" />
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/simple_border"
+                        android:backgroundTint="@color/edittintcolor"
+                        android:drawableLeft="@drawable/password"
+                        android:drawablePadding="10dp"
+                        android:hint=" Password"
+                        android:padding="15dp"
+                        android:textColor="@color/primaryColorDark"
+                        android:textColorHint="@color/ltgrey"
+                        android:textSize="18sp"
+                        android:typeface="serif" />
 
-                <EditText
-                    android:id="@+id/businessdesc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/simple_border"
-                    android:backgroundTint="@color/edittintcolor"
-                    android:drawableLeft="@drawable/businessdesc"
-                    android:drawablePadding="10dp"
-                    android:hint=" Business Description"
-                    android:padding="15dp"
-                    android:textColor="@color/primaryColorDark"
-                    android:textColorHint="@color/ltgrey"
-                    android:textSize="18sp"
-                    android:typeface="serif" />
+                    <EditText
+                        android:id="@+id/businesstitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/simple_border"
+                        android:backgroundTint="@color/edittintcolor"
+                        android:drawableLeft="@drawable/businesstitle"
+                        android:drawablePadding="10dp"
+                        android:hint=" Business Title"
+                        android:padding="15dp"
+                        android:textColor="@color/primaryColorDark"
+                        android:textColorHint="@color/ltgrey"
+                        android:textSize="18sp"
+                        android:typeface="serif"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/businessdesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/simple_border"
+                        android:backgroundTint="@color/edittintcolor"
+                        android:drawableLeft="@drawable/businessdesc"
+                        android:drawablePadding="10dp"
+                        android:hint=" Business Description"
+                        android:padding="15dp"
+                        android:textColor="@color/primaryColorDark"
+                        android:textColorHint="@color/ltgrey"
+                        android:textSize="18sp"
+                        android:typeface="serif"
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <Button

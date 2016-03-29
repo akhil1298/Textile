@@ -19,4 +19,8 @@
     <dimen name="photo_width">110dp</dimen>
     <dimen name="photo_height">110dp</dimen>
 
+    <dimen name="photo_width_selected">200dp</dimen>
+    <dimen name="photo_height_selected">250dp</dimen>
+    <dimen name="user_profile_height">410dp</dimen>
+    <dimen name="user_profile_height_own">370dp</dimen>
 </resources>

@@ -3,11 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgmain3"
-    android:paddingBottom="10dp"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
-    android:paddingTop="10dp"
+    android:paddingTop="5dp"
     tools:context="com.socialwork.mainclasses.Create_NewsFeed">
 
     <RelativeLayout
@@ -56,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtdesc"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="8dp"
                     android:orientation="vertical">
 
                     <ViewSwitcher
@@ -67,7 +63,13 @@
                         android:layout_marginRight="5dp"
                         android:layout_weight="1">
 
-                        <fourever.textile.miscs.GridViewScrollable
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/gridGallery"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+                        <!--<fourever.textile.miscs.GridViewScrollable
                             android:id="@+id/gridGallery"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
@@ -82,9 +84,10 @@
                             android:verticalSpacing="-15dp"
                             tools:listitem="@layout/gallery_item">
 
-                        </fourever.textile.miscs.GridViewScrollable>
+                        </fourever.textile.miscs.GridViewScrollable>-->
 
                         <ImageView
+                            android:id="@+id/addimg"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edittext_roundshape"
@@ -113,30 +116,30 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/lbldesc1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginTop="8dp"
-                    android:text="select buy or sell for this product."
-                    android:textColor="@color/ltgrey"
-                    android:textSize="16dp"
-                    android:textStyle="bold"></TextView>
+                <!--  <TextView
+                      android:id="@+id/lbldesc1"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginBottom="4dp"
+                      android:layout_marginTop="8dp"
+                      android:text="select buy or sell for this product."
+                      android:textColor="@color/ltgrey"
+                      android:textSize="16dp"
+                      android:textStyle="bold"></TextView>
 
-                <Spinner
-                    android:id="@+id/buysell"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_spinner"
-                    android:drawSelectorOnTop="true"></Spinner>
+                  <Spinner
+                      android:id="@+id/buysell"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:background="@drawable/gradient_spinner"
+                      android:drawSelectorOnTop="true"></Spinner>-->
 
                 <TextView
                     android:id="@+id/lbldesc2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="10dp"
                     android:text="select product category."
                     android:textColor="@color/ltgrey"
                     android:textSize="16dp"
@@ -146,6 +149,7 @@
                     android:id="@+id/category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/gradient_spinner"
                     android:drawSelectorOnTop="true"></Spinner>
 
@@ -157,7 +161,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/buttonround"
+            android:background="@color/primaryColor"
             android:text="Post"
             android:textColor="@color/accentcolor" />
     </RelativeLayout>

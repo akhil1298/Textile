@@ -1,62 +1,221 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_view"
+<!--<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="6dp"
-    card_view:cardCornerRadius="5dp">
+    tools:context=".MainActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    &lt;!&ndash; <android.support.design.widget.AppBarLayout
+         android:id="@+id/appbar"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:background="@android:color/transparent"
+         android:fitsSystemWindows="true"
+         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+         <android.support.design.widget.CollapsingToolbarLayout
+             android:id="@+id/collapsing_toolbar"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             app:contentScrim="?attr/colorPrimary"
+             app:layout_scrollFlags="scroll|exitUntilCollapsed"
+             app:title="Coolepse"
+             app:titleEnabled="false">
+
+             <android.support.v7.widget.Toolbar
+                 android:id="@+id/toolbar"
+                 android:layout_width="match_parent"
+                 android:layout_height="?attr/actionBarSize"
+                 app:layout_collapseMode="pin"
+                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+         </android.support.design.widget.CollapsingToolbarLayout>
+     </android.support.design.widget.AppBarLayout>&ndash;&gt;
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lightgrey"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:layout_margin="6dp"
+        card_view:cardCornerRadius="5dp">
 
-        <LinearLayout
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="100">
-
-            <ImageView
-                android:id="@+id/profileimg"
-                android:layout_width="60dp"
-                android:layout_height="45dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="20"
-                android:background="@drawable/user_default" />
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="16dp"
-                android:layout_weight="70"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
 
-                <TextView
-                    android:id="@+id/txtname"
-                    android:layout_width="wrap_content"
+                <fourever.textile.miscs.RoundedImageView
+                    android:id="@+id/profileimg"
+                    android:layout_width="70dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="20"
+                    android:src="@drawable/maleuser" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:gravity="center_vertical"
-                    android:text="Type on what's on your mind."
-                    android:textColor="@color/ltgrey"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:typeface="sans" />
+                    android:layout_marginRight="16dp"
+                    android:layout_weight="70"
+                    android:orientation="vertical">
 
-                <!--<TextView
-                    android:id="@+id/txttitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="1dp"
-                    android:text="Sarees Collection"
-                    android:textColor="@color/ltgrey"
-                    android:textSize="11dp" />-->
+                    <TextView
+                        android:id="@+id/txtname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:text="Write about new product and upload new products."
+                        android:textColor="@color/ltgrey"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:typeface="sans" />
 
+                    <TextView
+                        android:id="@+id/txttitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="1dp"
+                        android:text="Sarees Collection"
+                        android:textColor="@color/ltgrey"
+                        android:textSize="11dp" />
+
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>-->
+    <FrameLayout
+        android:id="@+id/frlyt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:saveEnabled="false">
+
+        <RelativeLayout
+            android:id="@+id/nonewdata"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/txtNoDataFound1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:text="No post found"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@+id/txtrefresh1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtNoDataFound1"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:background="@color/background"
+                android:drawableLeft="@android:drawable/stat_notify_sync_noanim"
+                android:gravity="center|center_horizontal"
+                android:padding="10dp"
+                android:text="Tap here to refresh" />
+        </RelativeLayout>
+
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/activity_newsfeed_swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/newfeeds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_view"
+                android:paddingTop="5dp" />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frlyt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:saveEnabled="false"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtNoDataFound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:text="No post found"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@+id/txtrefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtNoDataFound"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:background="@color/background"
+                android:drawableLeft="@android:drawable/stat_notify_sync_noanim"
+                android:gravity="center|center_horizontal"
+                android:padding="10dp"
+                android:text="Tap here to refresh" />
+        </RelativeLayout>
+    </FrameLayout>
+
+</LinearLayout>
+
+    <!-- </android.support.v4.widget.NestedScrollView>
+
+     &lt;!&ndash;<android.support.design.widget.FloatingActionButton
+         android:id="@+id/fab"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginBottom="20dp"
+         android:layout_marginRight="20dp"
+         android:src="@drawable/abc_btn_rating_star_on_mtrl_alpha"
+         app:fabSize="normal"
+         app:layout_anchor="@id/coordinatorLayout"
+         app:layout_anchorGravity="bottom|right|end" />&ndash;&gt;
+
+ </android.support.design.widget.CoordinatorLayout>-->

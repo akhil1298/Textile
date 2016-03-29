@@ -10,6 +10,15 @@
         <item name="windowActionBarOverlay">true</item>
     </style>
 
+    <style name="Theme.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+        <item name="colorControlActivated">@color/colorControlActivated</item>
+        <item name="colorSwitchThumbNormal">@color/colorSwitchThumbNormal</item>
+    </style>
+
     <style name="LoginscreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/loginprimarycolor</item>
         <item name="colorPrimaryDark">@color/loginprimarycolor</item>
@@ -19,7 +28,8 @@
     <style name="AppThemeNoAvtionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryColorDark</item>
-        <item name="colorControlNormal">@color/accentcolor</item>  <!--Change the color of overflow menu on actionbar(3 dot color only)-->
+        <item name="colorControlNormal">@color/accentcolor</item>
+        <!--Change the color of overflow menu on actionbar(3 dot color only)-->
     </style>
 
     <style name="Widget.MyApp.ActionBar" parent="Widget.AppCompat.ActionBar">
@@ -44,7 +54,7 @@
     <style name="FabStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        
+
         <!--<item name="android:layout_margin">@dimen/spacing_large</item>-->
         <item name="android:src">@drawable/ic_add_black</item>
         <item name="borderWidth">0dp</item>
@@ -55,9 +65,21 @@
 
     <color name="accent">#FFEB3B</color>
 
+    <style name="confirmDeleteAnimation">
+        <item name="android:windowEnterAnimation">@anim/zoom_enter</item>
+        <item name="android:windowExitAnimation">@anim/zoom_out</item>
+    </style>
+
     <style name="DialogAnimation">
         <item name="android:windowEnterAnimation">@android:anim/slide_in_left</item>
         <item name="android:windowExitAnimation">@android:anim/slide_out_right</item>
+    </style>
+
+    <style name="ProfileDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/abc_slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/abc_slide_out_bottom</item>
+        <!-- <item name="android:windowEnterAnimation">@anim/bounce_interpolator</item>
+        <item name="android:windowExitAnimation">@anim/abc_slide_out_bottom</item>-->
     </style>
 
     <!--    Custom ratingBar    -->
@@ -67,4 +89,14 @@
         <item name="android:minHeight">20dip</item>
         <item name="android:maxHeight">20dip</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
