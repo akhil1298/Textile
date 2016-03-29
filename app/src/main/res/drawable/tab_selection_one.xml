@@ -1,0 +1,11 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/homeselected" android:state_selected="true" />
+    <item android:drawable="@drawable/homeunselected"/>
+    <!-- default -->
+</selector>
+
+<!--
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/homeselect" android:state_selected="true"/>
+    <item android:drawable="@drawable/homeunselect"/> &lt;!&ndash; default &ndash;&gt;
+</selector>-->

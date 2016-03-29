@@ -1,0 +1,11 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/notificationselected" android:state_selected="true" />
+    <item android:drawable="@drawable/notificationunselected" />
+    <!-- default -->
+</selector>
+<!--
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/activityselect" android:state_selected="true" />
+    <item android:drawable="@drawable/activityunselect" />
+    &lt;!&ndash; default &ndash;&gt;
+</selector>-->

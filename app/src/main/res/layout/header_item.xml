@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:slm_headerDisplay="inline|sticky"
+    app:slm_isHeader="true"
+    app:slm_section_headerMarginStart="56dip">
+
+    <!-- <TextView
+         android:id="@+id/text"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textColor="#222222"
+         android:textSize="16sp"
+         tools:text="Text Line Item" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/postprofileimg"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/post_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/post_user_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/lightgrey"
+                android:gravity="start"
+                android:layoutDirection="locale"
+                android:padding="10dip"
+                android:textColor="@color/black"
+                android:textDirection="locale"
+                android:textSize="12sp"
+                app:slm_headerDisplay="sticky|inline"
+                app:slm_isHeader="true"
+                app:slm_section_headerMarginStart="56dip"
+                tools:text="Header Item" />
+
+            <TextView
+                android:id="@+id/noti_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Akhil Batlawala likes your photo."
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/time"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/noti_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="17 Jan 2016 at 14:20"
+                    android:textColor="@color/ltgrey"
+                    android:textSize="10sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/imgsetting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/settings" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Buy"
+                android:textColor="@color/primaryColorDark" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+    <!--
+    <TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightgrey"
+        android:gravity="start"
+        android:layoutDirection="locale"
+        android:padding="10dip"
+        android:textColor="@color/black"
+        android:textDirection="locale"
+        android:textSize="12sp"
+        app:slm_headerDisplay="sticky|inline"
+        app:slm_isHeader="true"
+        app:slm_section_headerMarginStart="56dip"
+        tools:text="Header Item" />-->

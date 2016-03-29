@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="10dp">
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/post_img"
+        android:layout_width="@dimen/photo_width_selected"
+        android:layout_height="@dimen/photo_height_selected"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/no_media" />
+
+</LinearLayout>

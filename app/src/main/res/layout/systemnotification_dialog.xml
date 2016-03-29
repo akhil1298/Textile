@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:background="@color/accentcolor"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/simple_border"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView_close"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="right"
+            android:layout_marginBottom="1dp"
+            android:background="@color/lightgrey"
+            android:paddingBottom="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="15dp"
+            android:paddingTop="20dp"
+            android:src="@drawable/crosspopb" />
+
+        <TextView
+            android:id="@+id/updateprofile"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/imageView_close"
+            android:gravity="center"
+            android:text="Profile Update"
+            android:textColor="@color/primary_dark_material_light"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <TextView
+            android:id="@+id/saveprofile_actionbar"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_fb_bg"
+            android:paddingBottom="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="15dp"
+            android:paddingTop="20dp"
+            android:text="Save"
+            android:textColor="@color/accentcolor" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/editprofile_mainlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/profileupdates"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/profilestrip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <fourever.textile.miscs.RoundedImageView
+                        android:id="@+id/img_profile_pic"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:src="@drawable/maleuser" />
+
+                    <TextView
+                        android:id="@+id/edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-5dp"
+                        android:text="edit"
+                        android:textColor="@color/bluetheme" />
+
+                    <!--<TextView
+                        android:id="@+id/descriptn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/uname"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="30dp"
+                        android:gravity="left"
+                        android:maxWidth="330dp"
+                        android:text="Akhil Batlawala"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />-->
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/profiledata"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/profilestrip"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/simple_border"
+                        android:textSize="6sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="6dp"
+                        android:paddingRight="6dp"
+                        android:paddingTop="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:orientation="vertical"
+                            android:weightSum="100">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/message"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginRight="25dp"
+                                        android:text="Name"
+                                        android:textSize="16dp"
+                                        android:textStyle="bold"
+                                        android:visibility="gone">
+
+                                    </TextView>
+
+                                    <!-- <EditText
+                                         android:id="@+id/name"
+                                         android:layout_width="match_parent"
+                                         android:layout_height="match_parent"
+                                         android:layout_marginLeft="25dp"
+                                         android:layout_marginRight="25dp"
+                                         android:layout_marginTop="-8dp"
+                                         android:hint="Your name" />-->
+
+                                    <EditText
+                                        android:id="@+id/name"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginTop="-8dp"
+                                        android:background="@drawable/simple_border"
+                                        android:drawableLeft="@drawable/users"
+                                        android:drawablePadding="10dp"
+                                        android:gravity="center_vertical"
+                                        android:hint=" Username"
+                                        android:inputType="text"
+                                        android:padding="10dp"
+                                        android:textSize="14sp"
+                                        android:typeface="serif" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txtemail"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginRight="25dp"
+                                        android:text="Email"
+                                        android:textSize="16dp"
+                                        android:textStyle="bold"
+                                        android:visibility="gone" />
+
+                                    <EditText
+                                        android:id="@+id/edtemail"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginTop="-8dp"
+                                        android:background="@drawable/simple_border"
+                                        android:drawableLeft="@drawable/emaildark"
+                                        android:drawablePadding="10dp"
+                                        android:gravity="center_vertical"
+                                        android:hint=" Your Email"
+                                        android:inputType="text"
+                                        android:padding="10dp"
+                                        android:textSize="14sp"
+                                        android:typeface="serif" />
+
+                                    <!--<EditText
+                                        android:id="@+id/edtemail"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginTop="-8dp"
+                                        android:hint="Your Email" />-->
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txtmobile"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginRight="25dp"
+                                        android:text="Mobile No"
+                                        android:textSize="16dp"
+                                        android:textStyle="bold"
+                                        android:visibility="gone" />
+
+                                    <EditText
+                                        android:id="@+id/edtmobile"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginTop="-8dp"
+                                        android:background="@drawable/simple_border"
+                                        android:drawableLeft="@drawable/phonedark"
+                                        android:drawablePadding="10dp"
+                                        android:gravity="center_vertical"
+                                        android:hint=" Your Mobile"
+                                        android:inputType="text"
+                                        android:padding="10dp"
+                                        android:textSize="14sp"
+                                        android:typeface="serif" />
+
+                                    <!--<EditText
+                                        android:id="@+id/edtmobile"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginTop="-8dp"
+                                        android:hint="Your mobile" />-->
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txtadd"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginRight="25dp"
+                                        android:text="Address"
+                                        android:textSize="16dp"
+                                        android:textStyle="bold"
+                                        android:visibility="gone" />
+
+                                    <EditText
+                                        android:id="@+id/edtadd"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginRight="25dp"
+                                        android:layout_marginTop="-8dp"
+                                        android:background="@drawable/simple_border"
+                                        android:drawableLeft="@drawable/loc_address"
+                                        android:drawablePadding="10dp"
+                                        android:gravity="center_vertical"
+                                        android:hint=" Your Address"
+                                        android:inputType="text"
+                                        android:padding="10dp"
+                                        android:textSize="14sp"
+                                        android:typeface="serif" />
+
+                                    <!-- <EditText
+                                         android:id="@+id/edtadd"
+                                         android:layout_width="match_parent"
+                                         android:layout_height="match_parent"
+                                         android:layout_marginLeft="25dp"
+                                         android:layout_marginRight="25dp"
+                                         android:layout_marginTop="-8dp"
+                                         android:hint="Your Address" />-->
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txtcity"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginRight="25dp"
+                                        android:text="City"
+                                        android:textSize="16dp"
+                                        android:textStyle="bold" />
+
+                                    <Spinner
+                                        android:id="@+id/cty"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="25dp"
+                                        android:layout_marginRight="25dp"
+                                        android:background="@drawable/simple_border"
+                                        android:drawSelectorOnTop="true"
+                                        android:prompt="@string/spinner_prompt" />
+                                    <!--<Spinner
+                                                                            android:id="@+id/cty"
+                                                                            android:layout_width="match_parent"
+                                                                            android:layout_height="wrap_content"
+                                                                            android:layout_marginLeft="25dp"
+                                                                            android:layout_marginRight="25dp"
+                                                                            android:background="@drawable/gradient_spinner"
+                                                                            android:drawSelectorOnTop="true"
+                                                                            android:popupBackground="@color/primaryColor"
+                                                                            android:prompt="@string/spinner_prompt" />-->
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <!--<TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/simple_border"
+                                android:textSize="6sp" />-->
+
+
+                            <!--<TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/simple_border" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/servicename"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Service Name :- "
+                                    android:textSize="16dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/txtservicename"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text=""
+                                    android:textSize="16dp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/simple_border" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/caseid"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Case ID :- "
+                                    android:textSize="16dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/txtcaseid"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textSize="16dp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/simple_border" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/servicebookingdate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Service Booking Date :- "
+                                    android:textSize="16dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/txtservicebokingdate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textSize="16dp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/simple_border" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/servicerequiredate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Service Required Date :- "
+                                    android:textSize="16dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/txtservicerequireddate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textSize="16dp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/simple_border" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/msg_location"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="Service Name :- "
+                                    android:textSize="16dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/txtlocation"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textSize="16dp" />
+                            </LinearLayout>-->
+
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/saveprofiles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profiledata"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/button_fb_bg"
+                    android:text="Save"
+                    android:textColor="@color/accentcolor"
+                    android:visibility="gone" />
+
+                <!--<eazito.eazitovendor.miscs.RoundedImageView
+                    android:id="@+id/rImage"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="80dp"
+                    android:padding="5dp"
+                    android:src="@drawable/maleuser" />-->
+            </RelativeLayout>
+
+        </ScrollView>
+        <!--<RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/profileroundshape">
+
+            <LinearLayout
+                android:id="@+id/bussinesslayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/simple_border"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="100"
+                    android:text="Business"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+
+                <TextView
+                    android:id="@+id/savebusinessprofile"
+                    android:layout_width="55dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="20"
+                    android:background="@drawable/saveprofilebutton"
+                    android:text="Save"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:typeface="serif"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/lblrelbussiness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bussinesslayout"
+                android:padding="7dp">
+
+                <TextView
+                    android:id="@+id/lblbussinesshort"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableLeft="@drawable/work"
+                    android:text=" Short Description"
+                    android:textColor="@color/ltgrey"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtbusishort"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/lblbussinesshort"
+                    android:layout_marginLeft="30dp"
+                    android:text="Work on different material design."
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtbusishort"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/lblbussinesshort"
+                    android:layout_marginLeft="30dp"
+                    android:text="Surat, Gujarat, India texttile market ved road working."
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/lblrelbussinesslong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lblrelbussiness"
+                android:padding="7dp">
+
+                <TextView
+                    android:id="@+id/lblbussinesslong"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableLeft="@drawable/longdesc"
+                    android:text=" Long Description"
+                    android:textColor="@color/ltgrey"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtbussislong"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/lblbussinesslong"
+                    android:layout_marginLeft="30dp"
+                    android:text="7878707022 "
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtbusslong"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/lblbussinesslong"
+                    android:layout_marginLeft="30dp"
+                    android:text="7878707022"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </RelativeLayout>-->
+    </LinearLayout>
+
+    <!---add your views here-->
+
+
+</LinearLayout>

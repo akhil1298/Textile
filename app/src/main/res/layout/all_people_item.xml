@@ -1,0 +1,123 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/accentcolor"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="3dp"
+        android:weightSum="100">
+
+        <LinearLayout
+            android:id="@+id/mainBoxLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="85"
+            android:background="@drawable/selector"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <fourever.textile.miscs.RoundedImageView
+                android:id="@+id/peopleimg"
+                android:layout_width="60dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical" />
+
+            <fourever.textile.miscs.RoundedImageView
+                android:id="@+id/default_img"
+                android:layout_width="60dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"
+                android:src="@drawable/maleuser"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/people_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/follow"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:text="Follow"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+</RelativeLayout><!--
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@color/accentcolor"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="3dp">
+
+        <LinearLayout
+            android:id="@+id/mainBoxLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <fourever.textile.miscs.RoundedImageView
+                android:id="@+id/peopleimg"
+                android:layout_width="70dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/people_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:maxLines="1"
+                android:text="Akhil Batlawala"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/follow"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:text="Follow"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+</RelativeLayout>-->
