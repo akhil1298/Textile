@@ -34,13 +34,12 @@ public class Chat extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton newchat = (FloatingActionButton) findViewById(R.id.newchat);
+        newchat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "new Chat.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-
             }
         });
 

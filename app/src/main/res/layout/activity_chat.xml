@@ -48,31 +48,32 @@
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
-            android:layout_below="@+id/appbar"
-            android:layout_marginTop="38dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@+id/appbar"
+            android:layout_marginTop="38dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </RelativeLayout>
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            style="@style/FabStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_marginLeft="@dimen/fab_margin"
-            app:backgroundTint="@color/accent"
-            app:layout_anchor="@id/fltbtn"
-            app:layout_anchorGravity="left|center_vertical" />
-        <!--<android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="@dimen/fab_margin"
-            android:src="@drawable/info"
-            app:layout_anchor="@id/tabs"
-            app:layout_anchorGravity="left|center_vertical" />-->
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/newchat"
+        style="@style/FabStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginLeft="@dimen/fab_margin"
+        app:backgroundTint="@color/accent"
+        app:layout_anchor="@id/fltbtn"
+        app:layout_anchorGravity="left|center_vertical" />
+    <!--<android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/info"
+        app:layout_anchor="@id/tabs"
+        app:layout_anchorGravity="left|center_vertical" />-->
 
 </android.support.design.widget.CoordinatorLayout>
