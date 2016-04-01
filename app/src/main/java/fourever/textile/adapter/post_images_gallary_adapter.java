@@ -49,7 +49,7 @@ public class post_images_gallary_adapter extends RecyclerView.Adapter<post_image
     @Override
     public void onBindViewHolder(post_images_gallary_adapter.ViewHolder holder, int position) {
         final String img = pictures.get(position);
-        holder.post_img.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/post_uploaded_images/" + img, imageLoader);
+        holder.post_img.setImageUrl("http://192.168.0.150:550/TextileApp/post_uploaded_images/" + img, imageLoader);
     }
 
     @Override

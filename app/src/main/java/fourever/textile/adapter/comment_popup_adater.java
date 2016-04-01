@@ -63,7 +63,7 @@ public class comment_popup_adater extends RecyclerView.Adapter<comment_popup_ada
         if(flag == 0){
             runEnterAnimation(holder.itemView, position);
             final post_comments_entity prod = comment.get(position);
-            holder.profileimg.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getCommenter_pic(), imageLoader);
+            holder.profileimg.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getCommenter_pic(), imageLoader);
             holder.txt_name.setText(prod.getCommenter_name());
             holder.txt_comment.setText(prod.getComment());
             holder.txt_Comment_time.setText(prod.getCommente_date() + " " + prod.getCommente_time());
@@ -71,7 +71,7 @@ public class comment_popup_adater extends RecyclerView.Adapter<comment_popup_ada
         if(flag == 1){
            // runEnterAnimation(holder.itemView, position);
             final post_like_entity prod = like.get(position);
-            holder.profileimg.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getLikes_pic(), imageLoader);
+            holder.profileimg.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getLikes_pic(), imageLoader);
             LinearLayout.LayoutParams buttonLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             buttonLayoutParams.setMargins(15,35,0,0);
             holder.txt_name.setLayoutParams(buttonLayoutParams);

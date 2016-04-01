@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -26,10 +27,14 @@ import android.widget.TextView;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.facebook.login.LoginManager;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import fourever.textile.fragment.DashboardFragment;
 import fourever.textile.fragment.Friend_Requests;
 import fourever.textile.miscs.AppController;
+import fourever.textile.miscs.PutUtility;
 import fourever.textile.miscs.Utils;
 import fourever.textile.notificationadapter.notifications;
 
@@ -53,6 +58,12 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int ANIM_DURATION_TOOLBAR = 300;
 
+    GoogleCloudMessaging gcm;
+    String PROJECT_NUMBER = "693813425622";
+    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    private String regid;
+    private SharedPreferences prefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        prefs = getSharedPreferences("Pref_Count", MODE_PRIVATE);
+        SharedPreferences.Editor edit = prefs.edit();
+        edit.putInt("count", 1);
+        edit.commit();
+
         imageLoader = AppController.getInstance().getImageLoader();
         if (imageLoader == null)
             imageLoader = AppController.getInstance().getImageLoader();
@@ -82,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         } else {
+
+            if (checkPlayServices()) {
+                getRegId();
+            }
 
             Name = (TextView) mNavigationView.findViewById(R.id.user_name);
             img = (NetworkImageView) mNavigationView.findViewById(R.id.user_image);
@@ -104,9 +124,9 @@ public class MainActivity extends AppCompatActivity {
 
             if (Loginprefs.getString("user_img", null) != null) {
                 try {
-                    img.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null), imageLoader);
+                    img.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null), imageLoader);
 
-                   /* imageurl = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null);
+                   /* imageurl = "http://192.168.0.150:550/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null);
                     URL url = new URL(imageurl);
                     InputStream is = url.openConnection().getInputStream();
                     if(bitMap!=null)
@@ -133,22 +153,22 @@ public class MainActivity extends AppCompatActivity {
 
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
-       /* if (getIntent().getExtras() != null) {
-            String back = getIntent().getStringExtra("followers_profile_back");
-            if (back.equals("followers_profile_back")) {
+
+        if (getIntent().getExtras() != null) {
+            String role = getIntent().getStringExtra("role");
+            if (role.equals("like_comment_noti")) {
                 DashboardFragment dashboardFragment = new DashboardFragment();
                 Bundle bundle = new Bundle();
-                bundle.putString("followers_profile_back", "followers_profile_back");
+                bundle.putString("role", "like_comment_noti");
                 dashboardFragment.setArguments(bundle);
                 mFragmentTransaction.replace(R.id.containerView, dashboardFragment).commit();
                 toolbar.setTitle(R.string.newsfeed);
             }
 
-        } else {*/
-        mFragmentTransaction.replace(R.id.containerView, new DashboardFragment()).commit();
-        toolbar.setTitle(R.string.newsfeed);
-        //}
-
+        } else {
+            mFragmentTransaction.replace(R.id.containerView, new DashboardFragment()).commit();
+            toolbar.setTitle(R.string.newsfeed);
+        }
 
        /* mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.containerView, new DashboardFragment()).commit();*/
@@ -380,5 +400,94 @@ public class MainActivity extends AppCompatActivity {
                 });
 
         alertDialog.show();
+    }
+
+
+    private class ServiceUpdateID extends AsyncTask<Void, Void, String> {
+
+        private String res;
+
+        @Override
+        protected void onPreExecute() {
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            res = null;
+            PutUtility put = new PutUtility();
+            try {
+                res = put.getData("http://192.168.0.150:550/TextileApp/webservice/update_deviceID.php?userid=" + userid + "&device_id=" + regid + "&flag=0");
+            } catch (Exception objEx) {
+                objEx.printStackTrace();
+            }
+            return res;
+        }
+
+        @Override
+        protected void onPostExecute(String res) {
+            try {
+                if (res == null) {
+                }
+
+            } catch (Exception objEx) {
+                objEx.printStackTrace();
+            }
+        }
+    }
+
+    private void getRegId() {
+        new AsyncTask<Void, Void, String>() {
+
+            @Override
+            protected String doInBackground(Void... params) {
+
+                try {
+                    if (gcm == null) {
+                        gcm = GoogleCloudMessaging
+                                .getInstance(MainActivity.this);
+                    }
+
+                    regid = gcm.register(PROJECT_NUMBER);
+                    if (regid == null) {
+                        regid = gcm.register(PROJECT_NUMBER);
+                    }
+                } catch (Exception e) {
+                }
+                return regid;
+            }
+
+            @Override
+            protected void onPostExecute(String result) {
+                regid = result;
+                if (regid == null || regid.equals(null) || regid.equals("null")
+                        || regid.equals("")) {
+                   /* salert.showAlertDialog(Login.this, "Error",
+                            "Something went wrong please restart the app", true);*/
+                } else {
+                    new ServiceUpdateID().execute();
+                    //Toast.makeText(Login.this, regid, Toast.LENGTH_LONG).show();
+                }
+            }
+
+        }.execute(null, null, null);
+    }
+
+    private boolean checkPlayServices() {
+        try {
+            int resultCode = GooglePlayServicesUtil
+                    .isGooglePlayServicesAvailable(MainActivity.this);
+            if (resultCode != ConnectionResult.SUCCESS) {
+                if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
+                    GooglePlayServicesUtil.getErrorDialog(resultCode, MainActivity.this,
+                            PLAY_SERVICES_RESOLUTION_REQUEST).show();
+                } else {
+
+                }
+                return false;
+            }
+        } catch (Exception e) {
+        }
+        return true;
     }
 }

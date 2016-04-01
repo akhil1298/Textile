@@ -569,7 +569,7 @@ public class Followers_Profile extends AppCompatActivity {
             PutUtility objClient = new PutUtility();
             try {
 
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/followers_following_list.php?userid=" + params[0] + "&flag=" + params[1] + "&loged_user_id=" + userid);
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/followers_following_list.php?userid=" + params[0] + "&flag=" + params[1] + "&loged_user_id=" + userid);
             } catch (Exception e) {
                 // Toast.makeText(getActivity(), String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }
@@ -719,7 +719,7 @@ public class Followers_Profile extends AppCompatActivity {
 
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/city_view.php");
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/city_view.php");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -776,7 +776,7 @@ public class Followers_Profile extends AppCompatActivity {
             PutUtility put = new PutUtility();
 
             try {
-                res = put.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/user_detail.php?userid=" + params[0] + "&logged_in_user=" + params[1]);
+                res = put.getData("http://192.168.0.150:550/TextileApp/webservice/user_detail.php?userid=" + params[0] + "&logged_in_user=" + params[1]);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -803,7 +803,7 @@ public class Followers_Profile extends AppCompatActivity {
                         following.setText(json.getString("total_following"));
                         followers.setText(json.getString("total_followers"));
 
-                        profile_pic = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + json.getString("profile_pic");
+                        profile_pic = "http://192.168.0.150:550/TextileApp/profile_pictures/" + json.getString("profile_pic");
                         joiningdate.setText("Joining at " + json.getString("date"));
                         try {
 
@@ -828,7 +828,7 @@ public class Followers_Profile extends AppCompatActivity {
                         }
                        /* try {
                             img_profile_pic.setImageUrl(, imageLoader);
-                            img.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + json.getString("profile_pic"), imageLoader);
+                            img.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + json.getString("profile_pic"), imageLoader);
 
                         } catch (Exception e) {
                             Log.d("Sutter image problem", "error - " + e.getMessage());
@@ -907,7 +907,7 @@ public class Followers_Profile extends AppCompatActivity {
 
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/follow_unfollow.php?user_id=" + params[0] + "&follower_id=" + params[1] + "&follow=" + params[2]);
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/follow_unfollow.php?user_id=" + params[0] + "&follower_id=" + params[1] + "&follow=" + params[2]);
             } catch (Exception e) {
                 // Toast.makeText(getActivity(), String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }
@@ -962,7 +962,7 @@ public class Followers_Profile extends AppCompatActivity {
 
             try {
                 PutUtility objClient = new PutUtility();
-                Response = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/category_list.php?userid=" + params[0]);
+                Response = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/category_list.php?userid=" + params[0]);
 
             } catch (Exception e) {
                 e.printStackTrace();

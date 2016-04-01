@@ -76,7 +76,7 @@ public class category_adapter extends RecyclerView.Adapter<category_adapter.View
     public void onBindViewHolder(category_adapter.ViewHolder holder, final int position) {
 
         final CityEntity prod = category.get(position);
-        // holder.profileimg.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getCommenter_pic(), imageLoader);
+        // holder.profileimg.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getCommenter_pic(), imageLoader);
         holder.txt_category_id.setText(prod.getCity_id());
         holder.txt_category_name.setText(prod.getCity_name());
 
@@ -200,7 +200,7 @@ public class category_adapter extends RecyclerView.Adapter<category_adapter.View
             pos = Integer.parseInt(params[2]);
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/category_delete.php?userid=" + params[0]+ "&category_id=" + params[1]);
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/category_delete.php?userid=" + params[0]+ "&category_id=" + params[1]);
             } catch (Exception e) {
                 // Toast.makeText(getActivity(), String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }

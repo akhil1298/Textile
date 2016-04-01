@@ -90,8 +90,8 @@ public class all_people_adapter extends RecyclerView.Adapter<all_people_adapter.
       //  animate(holder);
 
         final all_people_entity prod = people.get(position);
-        // String image_url = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getUser_pic();
-       // holder.peopleimg.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getUser_pic(), imageLoader);
+        // String image_url = "http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getUser_pic();
+       // holder.peopleimg.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getUser_pic(), imageLoader);
 
         if(prod.getUser_pic() == null || prod.getUser_pic().equals("")) {
             holder.default_img.setVisibility(View.VISIBLE);
@@ -104,7 +104,7 @@ public class all_people_adapter extends RecyclerView.Adapter<all_people_adapter.
         }else{
             holder.default_img.setVisibility(View.GONE);
             holder.peopleimg.setVisibility(View.VISIBLE);
-            String image_url = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getUser_pic();
+            String image_url = "http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getUser_pic();
             holder.peopleimg.setBackground(null);
             holder.peopleimg.setImageDrawable(null);
             holder.peopleimg.setImageUrl(image_url, imageLoader);
@@ -192,7 +192,7 @@ public class all_people_adapter extends RecyclerView.Adapter<all_people_adapter.
                     final TextView people_name = (TextView) unfollow_dialog.findViewById(R.id.people_name);
                     people_name.setText(prod.getUser_name() + " ?");
                     final NetworkImageView peopleimg = (NetworkImageView) unfollow_dialog.findViewById(R.id.peopleimg);
-                    String image_url = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getUser_pic();
+                    String image_url = "http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getUser_pic();
 
                     imageLoader.get(image_url, new ImageLoader.ImageListener() {
                         @Override
@@ -306,7 +306,7 @@ public class all_people_adapter extends RecyclerView.Adapter<all_people_adapter.
 
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/follow_unfollow.php?user_id=" + params[0] + "&follower_id=" + params[1] + "&follow=" + params[2]);
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/follow_unfollow.php?user_id=" + params[0] + "&follower_id=" + params[1] + "&follow=" + params[2]);
             } catch (Exception e) {
                 // Toast.makeText(getActivity(), String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }

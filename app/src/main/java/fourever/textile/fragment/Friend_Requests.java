@@ -178,7 +178,7 @@ public class Friend_Requests extends Fragment {
 
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/new_friend_request.php?user_id=" + params[0] + "&skipitem=" + params[1]);
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/new_friend_request.php?user_id=" + params[0] + "&skipitem=" + params[1]);
             } catch (Exception e) {
                 // Toast.makeText(getActivity(), String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }

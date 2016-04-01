@@ -139,7 +139,7 @@ public class newsfeed extends Fragment {
             }
         }
 
-        newfeeds.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        /*newfeeds.addOnScrollListener(new RecyclerView.OnScrollListener() {
             private int currentFirstVisibleItem = 0;
             private int currentVisibleItemCount = 0;
             private int currentScrollState;
@@ -193,8 +193,7 @@ public class newsfeed extends Fragment {
                 this.totalItemCount = mLayoutManager.getItemCount();
                 //onScroll(currentFirstVisibleItem, currentVisibleItemCount, totalItemCount);
             }
-        });
-
+        });*/
 
         /*news_feed_entity en0 = new news_feed_entity();
         en0.setTxtmessage("Create Post");
@@ -271,7 +270,7 @@ public class newsfeed extends Fragment {
 
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/newsfeed.php?user_id=" + params[0] + "&skipitem=" + params[1]);
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/newsfeed.php?user_id=" + params[0] + "&skipitem=" + params[1]);
             } catch (Exception e) {
                 // Toast.makeText(getActivity(), String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }
@@ -334,7 +333,7 @@ public class newsfeed extends Fragment {
                             | Gravity.CENTER_HORIZONTAL);
 
 
-                }/* else if (jArray.length() == 1) {
+                } else if (jArray.length() == 1) {
 
                     mSwipeRefreshLayout.setRefreshing(false);
                     mSwipeRefreshLayout.setVisibility(View.VISIBLE);
@@ -343,8 +342,8 @@ public class newsfeed extends Fragment {
 
                     nonewdata.setVisibility(View.VISIBLE);
 
-                    *//*Services = new ArrayList<news_feed_entity>();
-                    Services.clear();*//*
+                    Services = new ArrayList<news_feed_entity>();
+                    Services.clear();
 
                     news_feed_entity service1 = new news_feed_entity();
                     Services.add(service1);
@@ -353,12 +352,12 @@ public class newsfeed extends Fragment {
                     newfeeds.setAdapter(newsfeedAdapter);
                     newsfeedAdapter.notifyDataSetChanged();
 
-                }*/ else {
+                } else {
 
-                    if(skipItem == 0){
+                   /* if(skipItem == 0){
                         news_feed_entity service1 = new news_feed_entity();
                         Services.add(service1);
-                    }
+                    }*/
 
                     newfeeds.setVisibility(View.VISIBLE);
                     newfeeds.setEnabled(true);
@@ -367,8 +366,8 @@ public class newsfeed extends Fragment {
                     frlyt.setVisibility(View.GONE);
                     frlyt.setSaveEnabled(false);
 
-                    /*Services = new ArrayList<news_feed_entity>();
-                    Services.clear();*/
+                    Services = new ArrayList<news_feed_entity>();
+                    Services.clear();
 
                     news_feed_entity service1 = new news_feed_entity();
                     Services.add(service1);

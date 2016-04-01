@@ -80,7 +80,7 @@ public class Chat_Create extends AppCompatActivity {
             PutUtility put = new PutUtility();
 
             try {
-                res = put.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/chat_contacts.php?user_id="+params[0]);
+                res = put.getData("http://192.168.0.150:550/TextileApp/webservice/chat_contacts.php?user_id="+params[0]);
             } catch (Exception e) {
                 e.printStackTrace();
             }

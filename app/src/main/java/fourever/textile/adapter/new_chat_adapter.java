@@ -86,8 +86,8 @@ public class new_chat_adapter extends RecyclerView.Adapter<new_chat_adapter.View
       //  animate(holder);
 
         final all_people_entity prod = people.get(position);
-        // String image_url = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getUser_pic();
-       // holder.peopleimg.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getUser_pic(), imageLoader);
+        // String image_url = "http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getUser_pic();
+       // holder.peopleimg.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getUser_pic(), imageLoader);
 
         if(prod.getUser_pic() == null || prod.getUser_pic().equals("")) {
             holder.default_img.setVisibility(View.VISIBLE);
@@ -100,7 +100,7 @@ public class new_chat_adapter extends RecyclerView.Adapter<new_chat_adapter.View
         }else{
             holder.default_img.setVisibility(View.GONE);
             holder.peopleimg.setVisibility(View.VISIBLE);
-            String image_url = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getUser_pic();
+            String image_url = "http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getUser_pic();
             holder.peopleimg.setBackground(null);
             holder.peopleimg.setImageDrawable(null);
             holder.peopleimg.setImageUrl(image_url, imageLoader);

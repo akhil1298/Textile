@@ -73,7 +73,7 @@ public class all_people_search_popup_adapter extends BaseAdapter {
         // getting movie data for the row
         all_people_entity prod = people.get(position);
         txt_name.setText(prod.getUser_name());
-        profileimg.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getUser_pic(), imageLoader);
+        profileimg.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getUser_pic(), imageLoader);
 
 
         if (prod.getIs_follow().equals("1")) {

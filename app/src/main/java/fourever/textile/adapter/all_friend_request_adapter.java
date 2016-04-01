@@ -74,8 +74,8 @@ public class all_friend_request_adapter extends RecyclerView.Adapter<all_friend_
       //  animate(holder);
 
         final all_friend_request_entity prod = people.get(position);
-        // String image_url = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getUser_pic();
-       // holder.peopleimg.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getUser_pic(), imageLoader);
+        // String image_url = "http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getUser_pic();
+       // holder.peopleimg.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getUser_pic(), imageLoader);
 
         if(prod.getUser_pic() == null || prod.getUser_pic().equals("")) {
             holder.default_img.setVisibility(View.VISIBLE);
@@ -88,7 +88,7 @@ public class all_friend_request_adapter extends RecyclerView.Adapter<all_friend_
         }else{
             holder.default_img.setVisibility(View.GONE);
             holder.peopleimg.setVisibility(View.VISIBLE);
-            String image_url = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getUser_pic();
+            String image_url = "http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getUser_pic();
             holder.peopleimg.setBackground(null);
             holder.peopleimg.setImageDrawable(null);
             holder.peopleimg.setImageUrl(image_url, imageLoader);
@@ -158,7 +158,7 @@ public class all_friend_request_adapter extends RecyclerView.Adapter<all_friend_
             pos = Integer.parseInt(params[3]);
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/accept_reject_friend_request.php?user_id=" + params[0] + "&follower_id=" + params[1] + "&request_code=" + params[2]);
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/accept_reject_friend_request.php?user_id=" + params[0] + "&follower_id=" + params[1] + "&request_code=" + params[2]);
             } catch (Exception e) {
                 // Toast.makeText(getActivity(), String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }

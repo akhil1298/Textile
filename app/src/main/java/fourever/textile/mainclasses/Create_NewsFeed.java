@@ -423,7 +423,7 @@ public class Create_NewsFeed extends AppCompatActivity {
         private OutputStream outputStream;
         private PrintWriter writer;
         ProgressDialog mProgressDialog;
-        String requestURL = "http://4eversolutions.co.in/projects/TextileApp/webservice/create_post.php";
+        String requestURL = "http://192.168.0.150:550/TextileApp/webservice/create_post.php";
 
         int count;
 
@@ -654,7 +654,7 @@ public class Create_NewsFeed extends AppCompatActivity {
 
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/get_all_services.php");
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/get_all_services.php");
             } catch (Exception e) {
                 Toast.makeText(Create_NewsFeed.this, String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }

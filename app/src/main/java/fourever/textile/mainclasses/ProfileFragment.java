@@ -291,7 +291,7 @@ public class ProfileFragment extends Fragment {
 
                 img_profile_pic = (NetworkImageView) ProfileDialog.findViewById(R.id.img_profile_pic);
                 if (Loginprefs.getString("user_img", null) != null) {
-                    img_profile_pic.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null), imageLoader);
+                    img_profile_pic.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null), imageLoader);
                 }
 
                 profilestrip = (LinearLayout) ProfileDialog.findViewById(R.id.profilestrip);
@@ -399,8 +399,8 @@ public class ProfileFragment extends Fragment {
         if (Loginprefs.getString("user_img", null) != null) {
 
             try {
-                img.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null), imageLoader);
-                /*imageurl = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null);
+                img.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null), imageLoader);
+                /*imageurl = "http://192.168.0.150:550/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null);
                 URL url = new URL(imageurl);
                 InputStream is = url.openConnection().getInputStream();
                 if (bitMap != null) {
@@ -487,7 +487,7 @@ public class ProfileFragment extends Fragment {
 
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/city_view.php");
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/city_view.php");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -537,7 +537,7 @@ public class ProfileFragment extends Fragment {
                 cityid = cityEntity.getCity_id();
 
                 /*PutUtility objClient = new PutUtility();
-                res1 = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/city_view.php");
+                res1 = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/city_view.php");
                 JSONArray jArray = new JSONArray(res1.toString());
 
                 for (int i = 0; i < jArray.length(); i++) {
@@ -707,7 +707,7 @@ public class ProfileFragment extends Fragment {
                 fieldname = params[2];
                 res = null;
                 PutUtility put = new PutUtility();
-                res = put.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/profile_update/singlefield_update.php?id=" + params[0] + "&fieldname=" + params[2] + "&fieldvalue=" + URLEncoder.encode(params[1], "UTF-8"));
+                res = put.getData("http://192.168.0.150:550/TextileApp/webservice/profile_update/singlefield_update.php?id=" + params[0] + "&fieldname=" + params[2] + "&fieldvalue=" + URLEncoder.encode(params[1], "UTF-8"));
 
             } catch (Exception e) {
                 mProgressDialog.dismiss();
@@ -759,7 +759,7 @@ public class ProfileFragment extends Fragment {
             PutUtility put = new PutUtility();
 
             try {
-                res = put.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/user_detail.php?userid=" + params[0]);
+                res = put.getData("http://192.168.0.150:550/TextileApp/webservice/user_detail.php?userid=" + params[0]);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -858,7 +858,7 @@ public class ProfileFragment extends Fragment {
             PutUtility put = new PutUtility();
             processUpdate = 3;
             try {
-                res = put.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/profile_update/singlefield_update.php?id=" + params[0] + "&fieldname=" + params[2] + "&fieldvalue=" + URLEncoder.encode(params[1], "UTF-8"));
+                res = put.getData("http://192.168.0.150:550/TextileApp/webservice/profile_update/singlefield_update.php?id=" + params[0] + "&fieldname=" + params[2] + "&fieldvalue=" + URLEncoder.encode(params[1], "UTF-8"));
             } catch (Exception e) {
                 processUpdate = 2;
                 e.printStackTrace();
@@ -916,7 +916,7 @@ public class ProfileFragment extends Fragment {
                 put.setParam("user_email", params[1]);
                 //  put.setParam("id", params[1]);
                 //res = put.postData("http://www.eazito.com/webservice/vendor_edit_email_check.php");
-                res = put.postData("http://4eversolutions.co.in/projects/TextileApp/webservice/user_edit_email.php");
+                res = put.postData("http://192.168.0.150:550/TextileApp/webservice/user_edit_email.php");
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -994,7 +994,7 @@ public class ProfileFragment extends Fragment {
                 put.setParam("phone", params[1]);
                 //  put.setParam("id", params[1]);
                 //res = put.postData("http://www.eazito.com/webservice/vendor_edit_email_check.php");
-                res = put.postData("http://4eversolutions.co.in/projects/TextileApp/webservice/user_edit_mobile.php");
+                res = put.postData("http://192.168.0.150:550/TextileApp/webservice/user_edit_mobile.php");
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -1076,7 +1076,7 @@ public class ProfileFragment extends Fragment {
             try {
                 put.setParam("id", params[0]);
                 put.setParam("phone", params[1]);
-                res = put.postData("http://4eversolutions.co.in/projects/TextileApp/webservice/user_edit_mobile.php");
+                res = put.postData("http://192.168.0.150:550/TextileApp/webservice/user_edit_mobile.php");
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -1151,7 +1151,7 @@ public class ProfileFragment extends Fragment {
                 objClient.setParam("address", Uri.encode(params[4]));
                 objClient.setParam("city_id", params[5]);
 
-                Response = objClient.postData("http://4eversolutions.co.in/projects/TextileApp/webservice/profile_update/update_all.php");
+                Response = objClient.postData("http://192.168.0.150:550/TextileApp/webservice/profile_update/update_all.php");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -1303,7 +1303,7 @@ public class ProfileFragment extends Fragment {
                         public void run() {
 
                             try {
-                                String url = "http://4eversolutions.co.in/projects/TextileApp/webservice/user_profilepic_upload.php";
+                                String url = "http://192.168.0.150:550/TextileApp/webservice/user_profilepic_upload.php";
                                 FileUploader FU = new FileUploader(url, "UTF-8", getActivity());
                                 FU.addFormField("user_id", userid);
                                 FU.addLowFilePart("user_img", new File(thumbnailPath), userid);
@@ -1328,9 +1328,9 @@ public class ProfileFragment extends Fragment {
                                                 if (Loginprefs.getString("user_img", null) != null) {
                                                     getActivity().runOnUiThread(new Runnable() {
                                                         public void run() {
-                                                            img.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null), imageLoader);
+                                                            img.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null), imageLoader);
                                                             if (img_profile_pic != null) {
-                                                                img_profile_pic.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null), imageLoader);
+                                                                img_profile_pic.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null), imageLoader);
                                                             }
                                                             //Dashboard.img.setImageUrl("http://www.eazito.com/media/vender/" + Loginprefs.getString("vendor_img", null), imageLoader);
                                                             customtoast.ShowToast(getActivity(), "Updated successfully.", R.layout.blue_toast);

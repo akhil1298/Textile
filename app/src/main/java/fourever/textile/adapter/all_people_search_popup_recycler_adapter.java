@@ -86,7 +86,7 @@ public class all_people_search_popup_recycler_adapter extends RecyclerView.Adapt
 
         final all_people_entity prod = people.get(position);
         holder.txt_name.setText(prod.getUser_name());
-        holder.profileimg.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getUser_pic(), imageLoader);
+        holder.profileimg.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getUser_pic(), imageLoader);
 
         holder.mainBoxLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,7 +132,7 @@ public class all_people_search_popup_recycler_adapter extends RecyclerView.Adapt
                     final TextView people_name = (TextView) unfollow_dialog.findViewById(R.id.people_name);
                     people_name.setText(prod.getUser_name() + " ?");
                     final NetworkImageView peopleimg = (NetworkImageView) unfollow_dialog.findViewById(R.id.peopleimg);
-                    String image_url = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getUser_pic();
+                    String image_url = "http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getUser_pic();
 
                     imageLoader.get(image_url, new ImageLoader.ImageListener() {
                         @Override
@@ -243,7 +243,7 @@ public class all_people_search_popup_recycler_adapter extends RecyclerView.Adapt
 
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/follow_unfollow.php?user_id=" + params[0] + "&follower_id=" + params[1] + "&follow=" + params[2]);
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/follow_unfollow.php?user_id=" + params[0] + "&follower_id=" + params[1] + "&follow=" + params[2]);
             } catch (Exception e) {
                 // Toast.makeText(getActivity(), String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }

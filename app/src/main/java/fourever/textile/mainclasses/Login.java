@@ -445,7 +445,7 @@ public class Login extends FragmentActivity {
             PutUtility put = new PutUtility();
 
             try {
-                res = put.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/user_login.php?username=" + params[0] + "&password=" + params[1] + "&device_id=" + params[2]);
+                res = put.getData("http://192.168.0.150:550/TextileApp/webservice/user_login.php?username=" + params[0] + "&password=" + params[1] + "&device_id=" + params[2]);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -519,7 +519,7 @@ public class Login extends FragmentActivity {
 
                 objClient.setParam("flag", "facebook_login");
 
-                Response = objClient.postData("http://4eversolutions.co.in/projects/TextileApp/webservice/user_registration_add.php");
+                Response = objClient.postData("http://192.168.0.150:550/TextileApp/webservice/user_registration_add.php");
             } catch (Exception e) {
                 e.printStackTrace();
             }

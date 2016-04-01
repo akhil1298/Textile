@@ -58,7 +58,6 @@ public class GcmMessageHandler extends IntentService {
         GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(this);
         String messageType = gcm.getMessageType(intent);
 
-
         mes = extras.getString("msg");
         role = extras.getString("role");
         if (role.toString().equals("like_comment_noti")) {
@@ -75,12 +74,11 @@ public class GcmMessageHandler extends IntentService {
 
         }
 
-               /* mes = extras.getString("alert");
-                role = extras.getString("role");
-                Intent intnt = new Intent(ACTION_ON_MESSAGE);
-                sendBroadcast(intnt);
-                showMessageNotification();*/
-
+       /* mes = extras.getString("alert");
+        role = extras.getString("role");
+        Intent intnt = new Intent(ACTION_ON_MESSAGE);
+        sendBroadcast(intnt);
+        showMessageNotification();*/
 
         GcmReceiver.completeWakefulIntent(intent);
     }

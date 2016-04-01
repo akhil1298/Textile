@@ -183,7 +183,7 @@ public class CountryNamesAdapter extends RecyclerView.Adapter<CountryViewHolder>
             } else {
                 holder.default_img.setVisibility(View.GONE);
                 holder.noti_user_pic.setVisibility(View.VISIBLE);
-                String image_url = "http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + item.getNoti_user_pic();
+                String image_url = "http://192.168.0.150:550/TextileApp/profile_pictures/" + item.getNoti_user_pic();
                 holder.noti_user_pic.setBackground(null);
                 holder.noti_user_pic.setImageDrawable(null);
                 holder.noti_user_pic.setImageUrl(image_url, imageLoader);
@@ -455,7 +455,7 @@ public class CountryNamesAdapter extends RecyclerView.Adapter<CountryViewHolder>
 
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/notification_newsfeed.php?post_id=" + params[0]);
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/notification_newsfeed.php?post_id=" + params[0]);
             } catch (Exception e) {
                 // Toast.makeText(getActivity(), String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }
@@ -482,7 +482,7 @@ public class CountryNamesAdapter extends RecyclerView.Adapter<CountryViewHolder>
                     post_time.setText(json.getString("post_date") + " " + json.getString("post_time"));
                     post_type.setText(json.getString("post_category"));
                     post_text.setText(json.getString("post_description"));
-                    postprofileimg.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + json.getString("post_userpic"), imageLoader);
+                    postprofileimg.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + json.getString("post_userpic"), imageLoader);
                    /* service.setPost_id(json.getString("post_id"));
                     service.setPost_user_id(json.getString("post_userid"));
                     service.setPost_username(json.getString("post_username"));

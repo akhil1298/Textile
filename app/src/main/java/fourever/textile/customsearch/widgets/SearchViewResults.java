@@ -253,7 +253,7 @@ public class SearchViewResults extends RecyclerView.OnScrollListener implements 
             searchQuery = params[3];
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/all_people_search.php?user_id=" + params[0] + "&query=" + params[1] + "&skipitem=" + params[2]);
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/all_people_search.php?user_id=" + params[0] + "&query=" + params[1] + "&skipitem=" + params[2]);
             } catch (Exception e) {
                 // Toast.makeText(getActivity(), String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }

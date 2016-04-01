@@ -89,7 +89,7 @@ public class subuserlist_adapter extends RecyclerView.Adapter<subuserlist_adapte
     public void onBindViewHolder(subuserlist_adapter.ViewHolder holder, final int position) {
 
         final subuser_entity prod = subuser.get(position);
-        // holder.profileimg.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getCommenter_pic(), imageLoader);
+        // holder.profileimg.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getCommenter_pic(), imageLoader);
         holder.txt_subuser_id.setText(prod.getSub_user_id());
         holder.txt_subuser_name.setText(prod.getSubuser_name());
         holder.txt_subusername.setText(prod.getUsername());
@@ -273,7 +273,7 @@ public class subuserlist_adapter extends RecyclerView.Adapter<subuserlist_adapte
             pos = Integer.parseInt(params[1]);
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/subuser_delete.php?sub_userid=" + params[0]);
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/subuser_delete.php?sub_userid=" + params[0]);
             } catch (Exception e) {
                 // Toast.makeText(getActivity(), String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }
@@ -341,7 +341,7 @@ public class subuserlist_adapter extends RecyclerView.Adapter<subuserlist_adapte
 
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/subuser_edit.php?sub_userid=" + params[0] + "&subusername=" + params[2] + "&subuser_name="+params[1] + "&password=" + params[3]);
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/subuser_edit.php?sub_userid=" + params[0] + "&subusername=" + params[2] + "&subuser_name="+params[1] + "&password=" + params[3]);
             } catch (Exception e) {
                 // Toast.makeText(getActivity(), String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }

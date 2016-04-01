@@ -238,7 +238,7 @@ public class SignUp extends AppCompatActivity {
 
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/city_view.php");
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/city_view.php");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -279,7 +279,7 @@ public class SignUp extends AppCompatActivity {
 
             PutUtility objClient = new PutUtility();
             try {
-                res1 = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/city_view.php");
+                res1 = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/city_view.php");
                 JSONArray jArray = new JSONArray(res1.toString());
 
                 for (int i = 0; i < jArray.length(); i++) {
@@ -321,7 +321,7 @@ public class SignUp extends AppCompatActivity {
                 objClient.setParam("device_id", params[8]);
                 objClient.setParam("flag", "normal_login");
 
-                Response = objClient.postData("http://4eversolutions.co.in/projects/TextileApp/webservice/user_registration_add.php");
+                Response = objClient.postData("http://192.168.0.150:550/TextileApp/webservice/user_registration_add.php");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -419,7 +419,7 @@ public class SignUp extends AppCompatActivity {
                 put.setParam("email", params[0]);
                 //  put.setParam("id", params[1]);
                 //res = put.postData("http://www.eazito.com/webservice/vendor_edit_email_check.php");
-                res = put.postData("http://4eversolutions.co.in/projects/TextileApp/webservice/check_email_reg.php");
+                res = put.postData("http://192.168.0.150:550/TextileApp/webservice/check_email_reg.php");
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -496,7 +496,7 @@ public class SignUp extends AppCompatActivity {
                 put.setParam("phone", params[0]);
                 //  put.setParam("id", params[1]);
                 //res = put.postData("http://www.eazito.com/webservice/vendor_edit_email_check.php");
-                res = put.postData("http://4eversolutions.co.in/projects/TextileApp/webservice/check_mobile_reg.php");
+                res = put.postData("http://192.168.0.150:550/TextileApp/webservice/check_mobile_reg.php");
 
             } catch (Exception e) {
                 e.printStackTrace();

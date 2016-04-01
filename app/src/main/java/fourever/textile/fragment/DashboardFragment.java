@@ -1,5 +1,7 @@
 package fourever.textile.fragment;
 
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -13,12 +15,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.tonicartos.superslim.LayoutManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import fourever.textile.mainclasses.R;
+import fourever.textile.miscs.PutUtility;
 import fourever.textile.notificationadapter.notifications;
 
 public class DashboardFragment extends Fragment {
@@ -36,11 +42,22 @@ public class DashboardFragment extends Fragment {
     };
     private ViewPagerAdapter adapter;
 
+    GoogleCloudMessaging gcm;
+    String PROJECT_NUMBER = "693813425622";
+    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    private String regid;
+    private SharedPreferences Loginprefs;
+    private String userid;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View x = inflater.inflate(R.layout.dashboard_fragement_layout, null);
+
+        Loginprefs = getActivity().getSharedPreferences("logindetail", 0);
+        userid = Loginprefs.getString("vendor_id", null);
+
         viewPager = (ViewPager) x.findViewById(R.id.viewpager);
         setupViewPager(viewPager);
 
@@ -49,12 +66,12 @@ public class DashboardFragment extends Fragment {
 
         setupTabIcons();
 
-       /* if(getArguments() != null){
-            String followers_profile_back = getArguments().getString("followers_profile_back");
-            if(followers_profile_back.equals("followers_profile_back")){
-                tabLayout.getTabAt(1).select();
+        if(getArguments() != null){
+            String role = getArguments().getString("role");
+            if(role.equals("like_comment_noti")){
+                tabLayout.getTabAt(2).select();
             }
-        }*/
+        }
 
        /* tabLayout = (TabLayout) x.findViewById(R.id.tabs);
         viewPager = (ViewPager) x.findViewById(R.id.viewpager);
@@ -94,7 +111,6 @@ public class DashboardFragment extends Fragment {
 
         setHasOptionsMenu(true);
         viewPager.setOffscreenPageLimit(int_items);
-
 
         return x;
     }
@@ -248,5 +264,7 @@ public class DashboardFragment extends Fragment {
             return null;
         }
     }*/
+
+
 
 }

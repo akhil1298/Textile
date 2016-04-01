@@ -133,8 +133,8 @@ public class notifications extends Fragment {
             startActivity(intent);
         }
 
-        btnrefresh = (Button)view.findViewById(R.id.btnrefresh);
-        frlyt = (FrameLayout)view.findViewById(R.id.frlyt);
+        btnrefresh = (Button) view.findViewById(R.id.btnrefresh);
+        frlyt = (FrameLayout) view.findViewById(R.id.frlyt);
        /* mSwipeRefreshLayout = (SwipeRefreshLayout)view.findViewById(R.id.activity_noti_swipe_refresh_layout);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.primaryColorDark, R.color.ColorPrimaryDark, R.color.green);*/
 
@@ -152,7 +152,7 @@ public class notifications extends Fragment {
 
         mViews = new ViewHolder(view);
         mViews.initViews(new LayoutManager(getActivity()));
-      //  mViews.initViewsLinear(new LinearLayoutManager(getActivity()));
+        //  mViews.initViewsLinear(new LinearLayoutManager(getActivity()));
         mAdapter = new CountryNamesAdapter(getActivity(), mHeaderDisplay);
 
        /* mViews.mRecyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener(
@@ -448,8 +448,8 @@ public class notifications extends Fragment {
         @Override
         protected void onPreExecute() {
             res = null;
-         //   mSwipeRefreshLayout.setVisibility(View.VISIBLE);
-         //   mSwipeRefreshLayout.setRefreshing(true);
+            //   mSwipeRefreshLayout.setVisibility(View.VISIBLE);
+            //   mSwipeRefreshLayout.setRefreshing(true);
 
             mProgressDialog = ProgressDialog.show(
                     getActivity(), "",
@@ -461,7 +461,7 @@ public class notifications extends Fragment {
 
             PutUtility objClient = new PutUtility();
             try {
-                res = objClient.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/notifications.php?user_id=" + params[0] + "&skipitem=" + params[1]);
+                res = objClient.getData("http://192.168.0.150:550/TextileApp/webservice/notifications.php?user_id=" + params[0] + "&skipitem=" + params[1]);
             } catch (Exception e) {
                 // Toast.makeText(getActivity(), String.valueOf(e.getMessage()), Toast.LENGTH_SHORT).show();
             }
@@ -474,8 +474,8 @@ public class notifications extends Fragment {
 
                 if (res == null || res == " " || res.equals(" ")) {
 
-                  //  mSwipeRefreshLayout.setRefreshing(false);
-                  //  mSwipeRefreshLayout.setVisibility(View.GONE);
+                    //  mSwipeRefreshLayout.setRefreshing(false);
+                    //  mSwipeRefreshLayout.setVisibility(View.GONE);
                     frlyt.setVisibility(View.VISIBLE);
                     frlyt.setSaveEnabled(true);
                     mProgressDialog.dismiss();
@@ -488,12 +488,12 @@ public class notifications extends Fragment {
                     frlyt.setVisibility(View.VISIBLE);
                     frlyt.setSaveEnabled(true);
 
-                  //  mSwipeRefreshLayout.setRefreshing(false);
-                  //  mSwipeRefreshLayout.setVisibility(View.GONE);
+                    //  mSwipeRefreshLayout.setRefreshing(false);
+                    //  mSwipeRefreshLayout.setVisibility(View.GONE);
 
                 } else {
 
-                     mItems.clear();
+                    mItems.clear();
                     JSONObject jsn = jArray.getJSONObject(0);
                     String errorcode = jsn.getString("errorcode");
 
@@ -533,11 +533,11 @@ public class notifications extends Fragment {
                             mAdapter.notifyDataSetChanged();
 
                         } else {
-                          //  mProgressDialog.dismiss();
+                            //  mProgressDialog.dismiss();
                         }
 
-                     //   mSwipeRefreshLayout.setVisibility(View.VISIBLE);
-                     //   mSwipeRefreshLayout.setRefreshing(false);
+                        //   mSwipeRefreshLayout.setVisibility(View.VISIBLE);
+                        //   mSwipeRefreshLayout.setRefreshing(false);
                         frlyt.setVisibility(View.GONE);
                         frlyt.setSaveEnabled(false);
 
@@ -547,8 +547,8 @@ public class notifications extends Fragment {
                         mAdapter.setHeaderDisplay(mHeaderDisplay);
                         mViews.setAdapter(mAdapter);
 
-                     //   mSwipeRefreshLayout.setVisibility(View.GONE);
-                      //  mSwipeRefreshLayout.setRefreshing(false);
+                        //   mSwipeRefreshLayout.setVisibility(View.GONE);
+                        //  mSwipeRefreshLayout.setRefreshing(false);
                         frlyt.setVisibility(View.VISIBLE);
                         frlyt.setSaveEnabled(true);
                         mProgressDialog.dismiss();
@@ -556,13 +556,13 @@ public class notifications extends Fragment {
 
                 }
 
-               // mSwipeRefreshLayout.setRefreshing(false);
+                // mSwipeRefreshLayout.setRefreshing(false);
                 mProgressDialog.dismiss();
 
             } catch (Exception objEx) {
 
-              //  mSwipeRefreshLayout.setVisibility(View.GONE);
-              //  mSwipeRefreshLayout.setRefreshing(false);
+                //  mSwipeRefreshLayout.setVisibility(View.GONE);
+                //  mSwipeRefreshLayout.setRefreshing(false);
                 frlyt.setVisibility(View.VISIBLE);
                 frlyt.setSaveEnabled(true);
 
@@ -571,5 +571,4 @@ public class notifications extends Fragment {
             }
         }
     }
-
 }

@@ -244,7 +244,7 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
                     }
                 });
 
-                holder.profileimg.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null), imageLoader);
+                holder.profileimg.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + Loginprefs.getString("user_img", null), imageLoader);
             }
 
             if (position >= 1) { //Layout 2
@@ -257,7 +257,7 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
                 holder.post_time.setText(prod.getPost_date() + " " + prod.getPost_time());
                 holder.post_type.setText(prod.getPost_category());
                 holder.post_text.setText(prod.getPost_description());
-                holder.postprofileimg.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getPost_userpic(), imageLoader);
+                holder.postprofileimg.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getPost_userpic(), imageLoader);
 
                 //Start like comment view
                 holder.post_like_count.setText(String.valueOf(prod.getPost_likes().size()));
@@ -294,7 +294,7 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
                     }
 
                     holder.post_comment_by2.setText(prod.getPost_comments().get(prod.getPost_comments().size() - 1).getComment());
-                    holder.post_commenter_pic2.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getPost_comments().get(prod.getPost_comments().size() - 1).getCommenter_pic(), imageLoader);
+                    holder.post_commenter_pic2.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getPost_comments().get(prod.getPost_comments().size() - 1).getCommenter_pic(), imageLoader);
                 }
 
                 if (prod.getPost_comments().size() >= 2) {
@@ -308,7 +308,7 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
                     }
 
                     holder.post_comment_by2.setText(prod.getPost_comments().get(prod.getPost_comments().size() - 1).getComment());
-                    holder.post_commenter_pic2.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getPost_comments().get(prod.getPost_comments().size() - 1).getCommenter_pic(), imageLoader);
+                    holder.post_commenter_pic2.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getPost_comments().get(prod.getPost_comments().size() - 1).getCommenter_pic(), imageLoader);
 
                     //2nd Comment
                     holder.linear_post_comment1.setVisibility(View.VISIBLE);
@@ -319,7 +319,7 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
                     }
                     //holder.post_commenter_name2.setText(prod.getPost_comments().get(1).getCommenter_name());
                     holder.post_comment_by1.setText(prod.getPost_comments().get(prod.getPost_comments().size() - 2).getComment());
-                    holder.post_commenter_pic1.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getPost_comments().get(prod.getPost_comments().size() - 2).getCommenter_pic(), imageLoader);
+                    holder.post_commenter_pic1.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getPost_comments().get(prod.getPost_comments().size() - 2).getCommenter_pic(), imageLoader);
                 }
 
                 //End Main post Comments Display
@@ -332,7 +332,7 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
                         holder.post_commenter_name1.setText(prod.getPost_comments().get(0).getCommenter_name());
                     }
                     holder.post_comment_by1.setText(prod.getPost_comments().get(0).getComment());
-                    holder.post_commenter_pic1.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getPost_comments().get(0).getCommenter_pic(), imageLoader);
+                    holder.post_commenter_pic1.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getPost_comments().get(0).getCommenter_pic(), imageLoader);
                 }
 
                 if (prod.getPost_comments().size() >= 2) {
@@ -345,7 +345,7 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
                     }
 
                     holder.post_comment_by1.setText(prod.getPost_comments().get(0).getComment());
-                    holder.post_commenter_pic1.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getPost_comments().get(0).getCommenter_pic(), imageLoader);
+                    holder.post_commenter_pic1.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getPost_comments().get(0).getCommenter_pic(), imageLoader);
 
                     holder.linear_post_comment2.setVisibility(View.VISIBLE);
                     if (userid.equals(prod.getPost_comments().get(1).getCommenter_id())) {
@@ -355,7 +355,7 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
                     }
                     //holder.post_commenter_name2.setText(prod.getPost_comments().get(1).getCommenter_name());
                     holder.post_comment_by2.setText(prod.getPost_comments().get(1).getComment());
-                    holder.post_commenter_pic2.setImageUrl("http://4eversolutions.co.in/projects/TextileApp/profile_pictures/" + prod.getPost_comments().get(1).getCommenter_pic(), imageLoader);
+                    holder.post_commenter_pic2.setImageUrl("http://192.168.0.150:550/TextileApp/profile_pictures/" + prod.getPost_comments().get(1).getCommenter_pic(), imageLoader);
                 }*/
 
                 //End like comment view
@@ -542,6 +542,7 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
                         if(prod.getPost_likes().size() == 0){
                             comment_dialog_recycler.setVisibility(View.GONE);
                             txtNoDataFound_comment.setVisibility(View.VISIBLE);
+                            txtNoDataFound_comment.setText("No like found.");
                         }else{
                             comment_dialog_recycler.setVisibility(View.VISIBLE);
                             txtNoDataFound_comment.setVisibility(View.GONE);
@@ -740,8 +741,7 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
         private String res;
 
         @Override
-        protected void onPreExecute() {
-        }
+        protected void onPreExecute() { }
 
         @Override
         protected String doInBackground(String... params) {
@@ -750,7 +750,7 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
             PutUtility put = new PutUtility();
 
             try {
-                res = put.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/post_like_unlike.php?post_id=" + params[0] + "&user_id=" + params[1]);
+                res = put.getData("http://192.168.0.150:550/TextileApp/webservice/post_like_unlike.php?post_id=" + params[0] + "&user_id=" + params[1]);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -794,7 +794,7 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
             PutUtility put = new PutUtility();
 
             try {
-                res = put.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/add_comment.php?post_id=" + params[0] + "&user_id=" + params[1] + "&comment=" + Uri.encode(params[2]));
+                res = put.getData("http://192.168.0.150:550/TextileApp/webservice/add_comment.php?post_id=" + params[0] + "&user_id=" + params[1] + "&comment=" + Uri.encode(params[2]));
             } catch (Exception e) {
                 e.printStackTrace();
             }

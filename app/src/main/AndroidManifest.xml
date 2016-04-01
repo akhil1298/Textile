@@ -51,7 +51,7 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="eazito.eazitovendor.mainclasses" />
+                <category android:name="fourever.textile.mainclasses" />
             </intent-filter>
         </receiver>
 
