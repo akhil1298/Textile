@@ -1,5 +1,6 @@
 package fourever.textile.mainclasses;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -38,17 +39,19 @@ public class Chat extends AppCompatActivity {
         newchat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "new Chat.", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                /*Snackbar.make(view, "new Chat.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+                Intent intent = new Intent(Chat.this, Chat_Create.class);
+                startActivity(intent);
             }
         });
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         final MyAdapter mad = new MyAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(mad);
+      //  viewPager.setAdapter(mad);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+//.        tabLayout.setupWithViewPager(viewPager);
 
     }
     

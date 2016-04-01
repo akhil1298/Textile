@@ -8,6 +8,7 @@ public class all_people_entity {
     String user_id;
     String user_name;
     String user_pic;
+    String user_status;
     String is_follow;
     String total;
     String user_number;
@@ -58,5 +59,13 @@ public class all_people_entity {
 
     public void setUser_number(String user_number) {
         this.user_number = user_number;
+    }
+
+    public String getUser_status() {
+        return user_status;
+    }
+
+    public void setUser_status(String user_status) {
+        this.user_status = user_status;
     }
 }

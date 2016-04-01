@@ -197,7 +197,7 @@ public class Friend_Requests extends Fragment {
 
                     // mProgressDialog.dismiss();
                     // Toast.makeText(getActivity(), "Please Check your internet connectivity.", Toast.LENGTH_LONG).show();
-                   // customtoast.ShowToast(getActivity(), "Please Check your internet connectivity.", R.layout.red_toast);
+                    // customtoast.ShowToast(getActivity(), "Please Check your internet connectivity.", R.layout.red_toast);
                     txtNoDataFound1.setVisibility(View.VISIBLE);
                     txtNoDataFound1.setText("No new friend request Found !");
                     txtNoDataFound1.setGravity(Gravity.CENTER
@@ -228,7 +228,7 @@ public class Friend_Requests extends Fragment {
                     frlyt.setVisibility(View.GONE);
                     frlyt.setSaveEnabled(false);
 
-                   // Services.clear();
+                    // Services.clear();
 
                     for (int i = 0; i < jArray.length(); i++) {
                         JSONObject json = jArray.getJSONObject(i);

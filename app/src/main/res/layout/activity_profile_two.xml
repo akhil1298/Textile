@@ -261,8 +261,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/profileroundshape"
-                android:visibility="gone">
+                android:background="@drawable/profileroundshape">
 
                 <LinearLayout
                     android:id="@+id/aboutlayout"
@@ -374,7 +373,6 @@
                         android:layout_height="match_parent"
                         android:layout_below="@+id/phoneno"
                         android:layout_marginLeft="30dp"
-                        android:text="7878707022 "
                         android:textSize="16dp"
                         android:textStyle="bold" />
 
@@ -432,8 +430,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/profileroundshape"
-                android:visibility="gone">
+                android:background="@drawable/profileroundshape">
 
                 <LinearLayout
                     android:id="@+id/bussinesslayout"

@@ -58,7 +58,7 @@ public class ShinnyTextView extends TextView {
             mShineDrawable.getPaint().setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
 
             mAnimator = ValueAnimator.ofFloat(0, 1);
-            mAnimator.setDuration(5 * w); // custom
+            mAnimator.setDuration(10 * w); // custom
             mAnimator.setRepeatCount(ValueAnimator.INFINITE);
             mAnimator.setRepeatMode(ValueAnimator.RESTART);
             mAnimator.setInterpolator(new LinearInterpolator()); // Custom
