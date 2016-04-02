@@ -1,36 +1,36 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llmain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/chatbgblur"
-    tools:context="com.socialwork.mainclasses.ChatMainActivity">
+    android:background="#D3D3D3"
+    tools:context="eazito.eazitoclient.mainclasses.ChatMainActivity">
 
-    <Button
-        android:id="@+id/btnsend"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/ic_action_send_now"
-        android:onClick="saveReply" />
+    <!--   <Button
+           android:id="@+id/btnsend"
+           android:layout_width="50dp"
+           android:layout_height="40dp"
+           android:layout_alignParentBottom="true"
+           android:layout_alignParentRight="true"
+           android:background="@drawable/ic_action_send_now"
+           android:onClick="saveReply"
+           android:visibility="gone"/>-->
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/btnsend">
+        android:layout_above="@+id/bottomlayout">
 
         <ListView
             android:id="@+id/ChatListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:layout_marginBottom="10dp"
-
             android:divider="@color/none"
             android:groupIndicator="@color/none"
             android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="5dp"
             android:paddingTop="10dp"
             android:stackFromBottom="true" />
 
@@ -39,12 +39,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="@color/ColorPrimary"
+            android:background="@color/accentcolor"
             android:gravity="center_horizontal"
-            android:padding="5dp"
-            android:textColor="@color/accentcolor"
-            android:textSize="14dp"
-            android:visibility="gone"/>
+            android:textColor="@color/black"
+            android:textSize="14dp" />
 
         <!--    <TextView
                 android:id="@+id/stickyView"
@@ -60,29 +58,216 @@
 
     </FrameLayout>
 
-
-
     <TextView
         android:id="@+id/txtNoDataFound1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="No Chat History Found!"
+        android:text="No chat found."
         android:textColor="@color/black"
         android:textSize="16sp"
         android:visibility="gone" />
 
+    <!-- <EditText
+         android:id="@+id/msg_edit"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/btnsend"
+         android:layout_alignParentBottom="true"
+         android:layout_toLeftOf="@+id/btnsend"
+         android:layout_margin="5dp"
+         android:inputType="textMultiLine"></EditText>-->
 
-    <EditText
-        android:id="@+id/msg_edit"
+    <LinearLayout
+        android:id="@+id/bottomlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btnsend"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/btnsend"
-        android:textColor="@color/accentcolor"
-        android:inputType="textMultiLine"></EditText>
+        android:background="@android:color/white"
+        android:orientation="vertical">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <EditText
+                android:id="@+id/msg_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_toLeftOf="@+id/btnsend"
+                android:layout_toStartOf="@+id/btnsend"
+                android:hint="message"
+                android:inputType="textCapSentences"
+                android:layout_marginLeft="5dp"
+                android:maxLines="4"
+                android:paddingLeft="4dp"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:textSize="18sp" />
 
+            <ImageView
+                android:id="@+id/btnsend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/msg_edit"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="8dp"
+                android:onClick="saveReply"
+                android:paddingEnd="17dp"
+                android:paddingLeft="13dp"
+                android:paddingRight="17dp"
+                android:paddingStart="13dp"
+                android:src="@drawable/ic_chat_send" />
+
+        </RelativeLayout>
+    </LinearLayout>
 </RelativeLayout>
+
+    <!--
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/llmain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/chatbg"
+            tools:context="eazito.eazitoclient.mainclasses.ChatMainActivity">
+
+            <Button
+                android:id="@+id/btnsend"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_action_send_now"
+                android:onClick="saveReply" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/btnsend">
+
+                <ListView
+                    android:id="@+id/ChatListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+
+                    android:divider="@color/none"
+                    android:groupIndicator="@color/none"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp"
+                    android:stackFromBottom="true" />
+
+                <TextView
+                    android:id="@+id/stickyView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/ColorPrimary"
+                    android:gravity="center_horizontal"
+                    android:padding="5dp"
+                    android:text="Akhil"
+                    android:textColor="@color/accentcolor"
+                    android:textSize="14dp" />
+
+                &lt;!&ndash;    <TextView
+                        android:id="@+id/stickyView"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="#222"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="Heading1"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />&ndash;&gt;
+
+            </FrameLayout>
+
+
+            <TextView
+                android:id="@+id/txtNoDataFound1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="No Conversation Found!"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+
+            <EditText
+                android:id="@+id/msg_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btnsend"
+                android:layout_alignParentBottom="true"
+                android:layout_toLeftOf="@+id/btnsend"
+                android:inputType="textMultiLine"></EditText>
+
+        </RelativeLayout>
+
+
+            &lt;!&ndash;
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/llmain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bluetheme"
+                android:orientation="vertical"
+                tools:context="eazito.eazitoclient.mainclasses.ChatMainActivity" >
+
+                <TextView
+                    android:id="@+id/txtNoDataFound1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/lblnodata"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+
+                <ListView
+                    android:id="@+id/ChatListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:divider="#b5b5b5"
+                    android:dividerHeight="0dp"
+                    android:drawSelectorOnTop="false" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white" >
+
+                    <Button
+                        android:id="@+id/btnsend"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/ic_action_send_now"
+                        android:onClick="saveReply" />
+
+                    <EditText
+                        android:id="@+id/msg_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/btnsend"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toLeftOf="@+id/btnsend"
+                        android:inputType="textMultiLine" >
+                    </EditText>
+                </RelativeLayout>
+
+    </LinearLayout>&ndash;&gt;-->

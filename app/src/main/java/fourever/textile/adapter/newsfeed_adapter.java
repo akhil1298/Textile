@@ -784,8 +784,7 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
         private String res;
 
         @Override
-        protected void onPreExecute() {
-        }
+        protected void onPreExecute() { }
 
         @Override
         protected String doInBackground(String... params) {
@@ -823,18 +822,18 @@ public class newsfeed_adapter extends RecyclerView.Adapter<newsfeed_adapter.View
     }
 
     public static void ImageViewAnimatedChange(Context c, final ImageView v, final int new_image) {
+
         /*final Animation anim_out = AnimationUtils.loadAnimation(c, android.R.anim.fade_out);
         final Animation anim_in  = AnimationUtils.loadAnimation(c, android.R.anim.fade_in);*/
         final Animation anim_out = AnimationUtils.loadAnimation(c, R.anim.right_to_left);
         final Animation anim_in = AnimationUtils.loadAnimation(c, R.anim.left_to_right);
         anim_out.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-            }
 
             @Override
-            public void onAnimationRepeat(Animation animation) {
-            }
+            public void onAnimationStart(Animation animation) { }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) { }
 
             @Override
             public void onAnimationEnd(Animation animation) {

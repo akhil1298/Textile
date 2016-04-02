@@ -107,10 +107,10 @@ public class new_chat_adapter extends RecyclerView.Adapter<new_chat_adapter.View
         }
 
         //Row Clicked
-
         holder.mainBoxLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 /*Intent intent = new Intent(mContext, Followers_Profile.class);
                 intent.putExtra("people_user_id", prod.getUser_id());
                 intent.putExtra("people_is_follow", prod.getIs_follow());

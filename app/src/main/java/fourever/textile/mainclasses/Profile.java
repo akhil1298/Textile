@@ -1183,6 +1183,8 @@ public class Profile extends AppCompatActivity {
 
                 mProgressDialog.dismiss();
             } catch (Exception objEx) {
+                mProgressDialog.dismiss();
+                customtoast.ShowToast(getApplicationContext(), "Error in getting data.", R.layout.red_toast);
                 objEx.printStackTrace();
             }
         }
@@ -1206,7 +1208,7 @@ public class Profile extends AppCompatActivity {
             PutUtility put = new PutUtility();
             processUpdate = 3;
             try {
-                res = put.getData("http://192.168.0.150:550/TextileApp/webservice/profile_update/singlefield_update.php?id=" + params[0] + "&fieldname=" + params[2] + "&fieldvalue=" + URLEncoder.encode(params[1], "UTF-8"));
+                res = put.getData("http://4eversolutions.co.in/projects/TextileApp/webservice/profile_update/singlefield_update.php?id=" + params[0] + "&fieldname=" + params[2] + "&fieldvalue=" + URLEncoder.encode(params[1], "UTF-8"));
             } catch (Exception e) {
                 processUpdate = 2;
                 e.printStackTrace();

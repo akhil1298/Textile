@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 
 import com.tonicartos.superslim.LayoutManager;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -341,6 +342,7 @@ public class notifications extends Fragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         if (isVisibleToUser) {
             setHasOptionsMenu(true);
+            MainActivity.setToolbarTitle(getResources().getString(R.string.notifications));
         } else {
             setHasOptionsMenu(false);
         }

@@ -165,6 +165,15 @@ public class MainActivity extends AppCompatActivity {
                 toolbar.setTitle(R.string.newsfeed);
             }
 
+            if (role.equals("sendRequest")) {
+                Friend_Requests frd_request = new Friend_Requests();
+                Bundle bundle = new Bundle();
+                bundle.putString("role", "sendRequest");
+                frd_request.setArguments(bundle);
+                mFragmentTransaction.replace(R.id.containerView, frd_request).commit();
+                toolbar.setTitle(R.string.frdrequest);
+            }
+
         } else {
             mFragmentTransaction.replace(R.id.containerView, new DashboardFragment()).commit();
             toolbar.setTitle(R.string.newsfeed);

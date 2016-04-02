@@ -66,8 +66,8 @@ public class GcmMessageHandler extends IntentService {
             show_likecomment_noti();
         }
 
-        if (role.toString().equals("credit")) {
-
+        if (role.toString().equals("sendRequest")) {
+            show_follow_request_noti();
         }
 
         if (role.toString().equals("notification_free")) {
@@ -92,6 +92,60 @@ public class GcmMessageHandler extends IntentService {
                 show_like_comment_noti(getApplicationContext(), mes, role, post_id, post_user_id);
             }
         });
+    }
+
+    private void show_follow_request_noti() {
+        handler.post(new Runnable() {
+
+            @Override
+            public void run() {
+                show_follow_request_noti(getApplicationContext(), mes, role);
+            }
+        });
+    }
+
+    private static void show_follow_request_noti(Context context, String message, String role) {
+
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra("role", role);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+                | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("notification", "noti");
+
+        PendingIntent pIntent = PendingIntent.getActivity(context, 0, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+        if (not == null || not.equals("null")) {
+            not = new NotificationCompat.InboxStyle();
+        }
+        if (c == 1) {
+            if (not != null) {
+                not = new NotificationCompat.InboxStyle();
+            }
+        }
+
+        not.setBigContentTitle("TextTile");
+        not.addLine(message);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(
+                context).setContentText(c + " new messages").setStyle(not)
+                .setContentTitle(context.getText(R.string.app_name))
+                .setSmallIcon(R.mipmap.ic_launcher).setAutoCancel(true)
+                .setContentIntent(pIntent).setWhen(System.currentTimeMillis())
+                .setDefaults(Notification.DEFAULT_ALL);
+        c++;
+
+        prefs = context.getSharedPreferences("Pref_Count", MODE_PRIVATE);
+        Editor edit = prefs.edit();
+        edit.putInt("count", c);
+        edit.commit();
+
+        NotificationManager manager = (NotificationManager) context
+                .getSystemService(NOTIFICATION_SERVICE);
+        manager.notify(R.string.app_name, builder.build());
+        {
+        }
     }
 
     private static void show_like_comment_noti(Context context, String message, String role, String postid, String postuser_id ) {

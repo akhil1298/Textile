@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import fourever.textile.adapter.all_friend_request_adapter;
 import fourever.textile.entity.all_friend_request_entity;
 import fourever.textile.mainclasses.Login;
+import fourever.textile.mainclasses.MainActivity;
 import fourever.textile.mainclasses.R;
 import fourever.textile.miscs.PutUtility;
 
@@ -152,7 +153,7 @@ public class Friend_Requests extends Fragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         if (isVisibleToUser) {
-
+            //MainActivity.setToolbarTitle(getResources().getString(R.string.frdrequest));
         } else {
 
         }
@@ -267,5 +268,4 @@ public class Friend_Requests extends Fragment {
             }
         }
     }
-
 }

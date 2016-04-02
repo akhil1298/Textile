@@ -121,19 +121,16 @@ public class Chat_Create extends AppCompatActivity {
                         new_chat_adaptr = new new_chat_adapter(Chat_Create.this, Services);
                         new_people.setAdapter(new_chat_adaptr);
                         new_chat_adaptr.notifyDataSetChanged();
+
+                        loading_visitor_frame.setVisibility(View.GONE);
+                        error_frame.setVisibility(View.GONE);
+                        new_people.setVisibility(View.VISIBLE);
                     } else {
                         loading_visitor_frame.setVisibility(View.GONE);
                         new_people.setVisibility(View.GONE);
                         error_frame.setVisibility(View.VISIBLE);
                     }
-
-                    loading_visitor_frame.setVisibility(View.GONE);
-                    error_frame.setVisibility(View.GONE);
-                    new_people.setVisibility(View.VISIBLE);
-
                 }
-
-
 
                /* for (int i = 0; i < jArray.length(); i++) {
                     JSONObject json = jArray.getJSONObject(i);
@@ -173,5 +170,4 @@ public class Chat_Create extends AppCompatActivity {
             }
         }
     }
-
 }
