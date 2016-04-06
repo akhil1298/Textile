@@ -24,8 +24,10 @@ public class GcmMessageHandler extends IntentService {
     private String flag;
 
     public static final String ACTION_ON_REGISTERED = "eazito.eazitovendor.mainclasses.ON_REGISTERED";
-
+    public static final String ACTION_ON_MESSAGE = "eazito.eazitovendor.mainclasses.ON_MESSAGE";
     String post_id, post_user_id;
+    private String name;
+    private String to_user_id;
 
     public GcmMessageHandler() {
         super("GSMMessageHandler");
@@ -70,8 +72,12 @@ public class GcmMessageHandler extends IntentService {
             show_follow_request_noti();
         }
 
-        if (role.toString().equals("notification_free")) {
-
+        if (role.toString().equals("chat")) {
+            name = extras.getString("name");
+            to_user_id = extras.getString("to_user_id");
+            Intent intnt = new Intent(ACTION_ON_MESSAGE);
+            sendBroadcast(intnt);
+            show_chat_noti();
         }
 
        /* mes = extras.getString("alert");
@@ -100,6 +106,16 @@ public class GcmMessageHandler extends IntentService {
             @Override
             public void run() {
                 show_follow_request_noti(getApplicationContext(), mes, role);
+            }
+        });
+    }
+
+    private void show_chat_noti() {
+        handler.post(new Runnable() {
+
+            @Override
+            public void run() {
+                show_chat_notis(getApplicationContext(), to_user_id ,name ,mes, role);
             }
         });
     }
@@ -192,5 +208,51 @@ public class GcmMessageHandler extends IntentService {
         manager.notify(R.string.app_name, builder.build());
         {
         }
+    }
+
+    private static void show_chat_notis(Context context,String to_uid, String name, String message, String role) {
+
+        Intent intent = new Intent(context, MainActivity.class);
+        intent.putExtra("role", role);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+                | Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("role", role);
+        intent.putExtra("to_uid", to_uid);
+        intent.putExtra("name", name);
+        intent.putExtra("message", message);
+
+        PendingIntent pIntent = PendingIntent.getActivity(context, 0, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+        if (not == null || not.equals("null")) {
+            not = new NotificationCompat.InboxStyle();
+        }
+        if (c == 1) {
+            if (not != null) {
+                not = new NotificationCompat.InboxStyle();
+            }
+        }
+
+        not.setBigContentTitle("TextTile");
+        not.addLine(name +" "+message);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(
+                context).setContentText(c + " new messages").setStyle(not)
+                .setContentTitle(context.getText(R.string.app_name))
+                .setSmallIcon(R.mipmap.ic_launcher).setAutoCancel(true)
+                .setContentIntent(pIntent).setWhen(System.currentTimeMillis())
+                .setDefaults(Notification.DEFAULT_ALL);
+        c++;
+
+        prefs = context.getSharedPreferences("Pref_Count", MODE_PRIVATE);
+        Editor edit = prefs.edit();
+        edit.putInt("count", c);
+        edit.commit();
+
+        NotificationManager manager = (NotificationManager) context
+                .getSystemService(NOTIFICATION_SERVICE);
+        manager.notify(R.string.app_name, builder.build());
+        { }
     }
 }

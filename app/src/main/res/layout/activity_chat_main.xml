@@ -84,22 +84,55 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@android:color/white"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <EditText
+            android:id="@+id/msg_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="90"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="Add Comment"
+            android:padding="10dp"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/btnsend"
+            android:layout_width="38dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:layout_weight="10"
+            android:padding="2dp"
+            android:src="@drawable/sendbutton" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomlayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/msg_edit"
+                android:id="@+id/msg_edit1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
-                android:layout_toLeftOf="@+id/btnsend"
-                android:layout_toStartOf="@+id/btnsend"
+                android:layout_marginLeft="5dp"
+                android:layout_toLeftOf="@+id/btnsend1"
+                android:layout_toStartOf="@+id/btnsend1"
                 android:hint="message"
                 android:inputType="textCapSentences"
-                android:layout_marginLeft="5dp"
                 android:maxLines="4"
                 android:paddingLeft="4dp"
                 android:scrollHorizontally="false"
@@ -107,10 +140,10 @@
                 android:textSize="18sp" />
 
             <ImageView
-                android:id="@+id/btnsend"
+                android:id="@+id/btnsend1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/msg_edit"
+                android:layout_alignBottom="@id/msg_edit1"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="8dp"

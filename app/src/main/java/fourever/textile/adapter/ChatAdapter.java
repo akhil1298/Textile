@@ -14,17 +14,18 @@ import java.util.Date;
 import java.util.List;
 
 import fourever.textile.entity.ChatEntity;
+import fourever.textile.entity.ChatEntityy;
 import fourever.textile.mainclasses.ChatMainActivity;
 import fourever.textile.mainclasses.R;
 
 
-public class ChatAdapter extends ArrayAdapter<ChatEntity> {
+public class ChatAdapter extends ArrayAdapter<ChatEntityy> {
 
     Context context;
     String getfromflag;
     private String msgrecentdate = "";
 
-    public ChatAdapter(Context context, int resource, List<ChatEntity> objects) {
+    public ChatAdapter(Context context, int resource, List<ChatEntityy> objects) {
         super(context, resource, objects);
         this.context = context;
     }
@@ -48,7 +49,7 @@ public class ChatAdapter extends ArrayAdapter<ChatEntity> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        ChatEntity chat = getItem(position);
+        ChatEntityy chat = getItem(position);
         LayoutInflater mInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (convertView == null) {
@@ -78,15 +79,15 @@ public class ChatAdapter extends ArrayAdapter<ChatEntity> {
         }
 
         holder.msgid.setText(chat.getMsgid());
-        holder.caseid.setText(chat.getCaseid());
+        /*holder.caseid.setText(chat.getCaseid());
         holder.vendorid.setText(chat.getVendorid());
-        holder.customerid.setText(chat.getCustomerid());
+        holder.customerid.setText(chat.getCustomerid());*/
 
         holder.msgdate.setText(chat.getMsgdate());
         holder.msgtime.setText(chat.getMsgtime());
-        holder.msgflag.setText(chat.getMsgflag());
-        holder.txtfrom.setText(chat.getTxtfrom());
-        holder.txtmy.setText(chat.getTxtmy());
+      //  holder.msgflag.setText(chat.getMsgflag());
+        //holder.txtfrom.setText(chat.getTxtfrom());
+        holder.txtmy.setText(chat.getMsg());
 
         String inputDate = chat.getMsgdate();
         Date date = null;
@@ -113,17 +114,15 @@ public class ChatAdapter extends ArrayAdapter<ChatEntity> {
             msgrecentdate = chat.getMsgdate();
         }
 
-        getfromflag = chat.getGetfrom();
+     //   getfromflag = chat.getGetfrom();
 
-
-        if (getfromflag.equals("C")) {
-            if (chat.getMsgflag().equals("C")) {
+            if (chat.getMsgflag().equals("my")) {
                 /*holder.txtmy.setVisibility(View.VISIBLE);
                 holder.txtmy.setText(chat.getTxtmy());
                 holder.txtfrom.setVisibility(View.GONE);*/
                 holder.rel2.setVisibility(View.VISIBLE);
                 holder.txtmy.setVisibility(View.VISIBLE);
-                holder.txtmy.setText(chat.getTxtmy());
+                holder.txtmy.setText(chat.getMsg());
                 holder.msgtime2.setVisibility(View.VISIBLE);
                 holder.msgtime2.setText(chat.getMsgtime());
                 holder.rel1.setVisibility(View.GONE);
@@ -136,41 +135,13 @@ public class ChatAdapter extends ArrayAdapter<ChatEntity> {
                 holder.rel1.setVisibility(View.VISIBLE);
                 holder.txtfrom.setVisibility(View.VISIBLE);
                 holder.msgtime1.setVisibility(View.VISIBLE);
-                holder.txtfrom.setText(chat.getTxtfrom());
+                holder.txtfrom.setText(chat.getMsg());
                 holder.msgtime1.setText(chat.getMsgtime());
                 holder.rel2.setVisibility(View.GONE);
                 holder.txtmy.setVisibility(View.GONE);
                 holder.msgtime2.setVisibility(View.GONE);
             }
-        } else {
-            if (chat.getMsgflag().equals("C")) {
-                /*holder.txtfrom.setVisibility(View.VISIBLE);
-                holder.txtfrom.setText(chat.getTxtfrom());
-                holder.txtmy.setVisibility(View.GONE);*/
-                holder.rel1.setVisibility(View.VISIBLE);
-                holder.txtfrom.setVisibility(View.VISIBLE);
-                holder.msgtime1.setVisibility(View.VISIBLE);
-                holder.txtfrom.setText(chat.getTxtfrom());
-                holder.msgtime1.setText(chat.getMsgtime());
-                holder.rel2.setVisibility(View.GONE);
-                holder.txtmy.setVisibility(View.GONE);
-                holder.msgtime2.setVisibility(View.GONE);
-            } else {
-                /*holder.txtmy.setVisibility(View.VISIBLE);
-                holder.txtmy.setText(chat.getTxtmy());
-                holder.txtfrom.setVisibility(View.GONE);*/
-                holder.rel2.setVisibility(View.VISIBLE);
-                holder.txtmy.setVisibility(View.VISIBLE);
-                holder.msgtime2.setVisibility(View.VISIBLE);
-                holder.txtmy.setText(chat.getTxtmy());
-                holder.msgtime2.setText(chat.getMsgtime());
-                holder.rel1.setVisibility(View.GONE);
-                holder.txtfrom.setVisibility(View.GONE);
-                holder.msgtime1.setVisibility(View.GONE);
-            }
-        }
 
         return convertView;
     }
-
 }

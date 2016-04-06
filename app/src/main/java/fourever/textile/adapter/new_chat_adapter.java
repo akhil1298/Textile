@@ -32,6 +32,7 @@ import org.json.JSONObject;
 import java.util.List;
 
 import fourever.textile.entity.all_people_entity;
+import fourever.textile.mainclasses.ChatMainActivity;
 import fourever.textile.mainclasses.Followers_Profile;
 import fourever.textile.mainclasses.R;
 import fourever.textile.miscs.AppController;
@@ -41,6 +42,7 @@ import fourever.textile.miscs.customtoast;
 /**
  * Created by akhil on 2/2/16.
  */
+
 public class new_chat_adapter extends RecyclerView.Adapter<new_chat_adapter.ViewHolder> {
 
     private final String userid;
@@ -110,11 +112,10 @@ public class new_chat_adapter extends RecyclerView.Adapter<new_chat_adapter.View
         holder.mainBoxLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                /*Intent intent = new Intent(mContext, Followers_Profile.class);
-                intent.putExtra("people_user_id", prod.getUser_id());
-                intent.putExtra("people_is_follow", prod.getIs_follow());
-                mContext.startActivity(intent);*/
+                Intent intent = new Intent(mContext, ChatMainActivity.class);
+                intent.putExtra("to_id", prod.getUser_id());
+                intent.putExtra("name", prod.getUser_name());
+                mContext.startActivity(intent);
             }
         });
 
@@ -137,7 +138,6 @@ public class new_chat_adapter extends RecyclerView.Adapter<new_chat_adapter.View
                 holder.people_status.setText("***No Status***");
             }
         }
-
     }
 
     @Override
