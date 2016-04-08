@@ -13,8 +13,7 @@ public class ChatEntity {
     private String txtmy;
     private String getfrom;
 
-    public ChatEntity() {
-    }
+    public ChatEntity() { }
 
     public ChatEntity(String msgid, String caseid, String vendorid,
                       String customerid, String msgdate, String msgtime, String msgflag,

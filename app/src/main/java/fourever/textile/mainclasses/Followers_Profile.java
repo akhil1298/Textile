@@ -148,6 +148,7 @@ public class Followers_Profile extends AppCompatActivity {
                 new Category_list().execute(people_user_id);
             }
         });
+
         new Category_list().execute(people_user_id);
 
         // Make sure we're running on Honeycomb or higher to use ActionBar APIs

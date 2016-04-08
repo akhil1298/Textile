@@ -1130,7 +1130,6 @@ public class Profile extends AppCompatActivity {
                             }
                         }*/
 
-
                         joiningdate.setText("Joining at " + json.getString("date"));
 
                         if (json.getString("address") == null || json.getString("address").equals("") || json.getString("address").equals("null") || json.getString("address").equals(null)) {

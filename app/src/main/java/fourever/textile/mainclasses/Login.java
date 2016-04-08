@@ -467,6 +467,13 @@ public class Login extends FragmentActivity {
                         edit.putString("user_name", json.getString("user_name"));
                         edit.putString("user_img", json.getString("user_img"));
                         edit.putString("user_deviceId", json.getString("deviceID"));
+
+                        edit.putString("flag", json.getString("flag"));
+                        if(json.getString("flag").equals("1")) {
+                            edit.putString("sub_user_id", json.getString("sub_user_id"));
+                            edit.putString("subuser_name", json.getString("subuser_name"));
+                        }
+
                         edit.commit();
 
                         customtoast.ShowToast(getApplicationContext(), "Login Successfully.", R.layout.blue_toast);
