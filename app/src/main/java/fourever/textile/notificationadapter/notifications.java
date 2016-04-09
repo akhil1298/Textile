@@ -544,10 +544,10 @@ public class notifications extends Fragment {
                         frlyt.setSaveEnabled(false);
 
                     } else {
-                        mAdapter = new CountryNamesAdapter(getActivity(), mHeaderDisplay);
+                       /* mAdapter = new CountryNamesAdapter(getActivity(), mHeaderDisplay);
                         mAdapter.setMarginsFixed(mAreMarginsFixed);
                         mAdapter.setHeaderDisplay(mHeaderDisplay);
-                        mViews.setAdapter(mAdapter);
+                        mViews.setAdapter(mAdapter);*/
 
                         //   mSwipeRefreshLayout.setVisibility(View.GONE);
                         //  mSwipeRefreshLayout.setRefreshing(false);

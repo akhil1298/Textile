@@ -485,9 +485,6 @@ public class Login extends FragmentActivity {
                         finish();
                     } else {
                         customtoast.ShowToast(getApplicationContext(), "Invalid Username and Password", R.layout.red_toast);
-                        /*Toast.makeText(Login.this,
-                                "Invalid Username and Password", Toast.LENGTH_LONG)
-                                .show();*/
                     }
                 }
 

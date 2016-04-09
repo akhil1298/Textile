@@ -24,9 +24,12 @@
     <string name="logout">Logout</string>
     <string name="title_activity_chat">Chat</string>
     <string name="title_activity_create__news_feed">Post Feed</string>
-
+    <string name="ContactusLabel"> For any further assistance, kindly feel free to get in touch with Textile support team through.</string>
     <string name="demoString">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </string>
+
     <!--  Text View Label  -->
+    <string name="callus1">Call</string>
+    <string name="emailid1">E-mail</string>
     <string name="description">Description</string>
     <string name="title_activity_home">Home</string>
     <string name="title_activity_profile_two">ProfileTwo</string>

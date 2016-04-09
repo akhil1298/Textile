@@ -1219,7 +1219,7 @@ public class ProfileFragment extends Fragment {
                                ArrayList<CityEntity> objects) {
             super(context, textViewResourceId, objects);
             data = objects;
-            // TODO Auto-generated constructor stub
+
         }
 
 
@@ -1230,12 +1230,12 @@ public class ProfileFragment extends Fragment {
 
 
         public View getView(int position, View convertView, ViewGroup parent) {
-            // TODO Auto-generated method stub
+
             return getCustomView(position, convertView, parent);
         }
 
         public View getCustomView(int position, View convertView, ViewGroup parent) {
-            // TODO Auto-generated method stub
+
             //return super.getView(position, convertView, parent);
 
             CityEntity tempValues = (CityEntity) data.get(position);

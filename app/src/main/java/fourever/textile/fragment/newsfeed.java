@@ -468,6 +468,7 @@ public class newsfeed extends Fragment {
                 if (processVisible == true) {
                     mProgressDialog.dismiss();
                 }
+                mProgressDialog.show();
                 objEx.printStackTrace();
             }
         }

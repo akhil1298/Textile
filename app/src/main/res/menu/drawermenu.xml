@@ -55,6 +55,7 @@
             android:icon="@drawable/rateus"
             android:title="Rate Us" />
         <item
+            android:id="@+id/nav_item_contactus"
             android:icon="@drawable/contactus"
             android:title="Contact Us" />
 

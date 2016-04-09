@@ -89,10 +89,10 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tab.getPosition() == 2) {
-                    updateHeaderMode(LayoutManager.LayoutParams.HEADER_INLINE);
+                   /* updateHeaderMode(LayoutManager.LayoutParams.HEADER_INLINE);
                     notifications f = getCountriesFragment();
                     f.setHeadersSticky(true);
-                    f.setMarginsFixed(false);
+                    f.setMarginsFixed(false);*/
 
                 }
                 viewPager.setCurrentItem(tab.getPosition());

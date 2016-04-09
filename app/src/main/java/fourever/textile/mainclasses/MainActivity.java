@@ -31,6 +31,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
+import fourever.textile.fragment.ContactusFragment;
 import fourever.textile.fragment.DashboardFragment;
 import fourever.textile.fragment.Friend_Requests;
 import fourever.textile.miscs.AppController;
@@ -241,6 +242,13 @@ public class MainActivity extends AppCompatActivity {
                             toolbar.setTitle(R.string.newsfeed);
                             toolbar.setTitle(R.string.setting);
                         }
+
+                        if (menuItem.getItemId() == R.id.nav_item_contactus) {
+                            FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+                            fragmentTransaction.replace(R.id.containerView, new ContactusFragment()).commit();
+                            toolbar.setTitle(R.string.frdrequest);
+                        }
+
 
                         if (menuItem.getItemId() == R.id.nav_item_logout) {
 

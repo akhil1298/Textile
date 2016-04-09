@@ -136,7 +136,8 @@ public class Profile extends AppCompatActivity {
     private TextView txt_nocategory;
     private RecyclerView categoryRecyclerView;
     private category_adapter category_list_adapter;
-    private RelativeLayout lblrelcategory;
+    private RelativeLayout lblrelcategory, userlayout;
+    private String flag;
     //Dialog dialog1 = null;
 
     @Override
@@ -151,6 +152,12 @@ public class Profile extends AppCompatActivity {
             Intent intent = new Intent(Profile.this, Login.class);
             startActivity(intent);
             finish();
+        }
+
+        userlayout = (RelativeLayout)findViewById(R.id.userlayout);
+        flag = Loginprefs.getString("flag", "");
+        if(flag.equals("1")){
+            userlayout.setVisibility(View.GONE);
         }
 
         subuser_list_progressBar = (ProgressBar) findViewById(R.id.subuser_list_progressBar);
